@@ -1,0 +1,31 @@
+{
+  "name": "theme3_forms",
+  "version": "0.0.0",
+  "description": "Forms UI add-ons to Theme_3",
+  "main": "index.js",
+  "bin": {
+    "th3": "./node_modules/theme_3/bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rontea/theme3_forms.git"
+  },
+  "keywords": [
+    "forms",
+    "theme_3",
+    "rontea"
+  ],
+  "author": "rontea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rontea/theme3_forms/issues"
+  },
+  "homepage": "https://github.com/rontea/theme3_forms#readme",
+  "dependencies": {
+    "theme_3": "^0.0.0-beta.3",
+    "vue": "^3.5.6"
+  }
+}

@@ -1,0 +1,34 @@
+# Dependency directories
+**/node_modules
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+
+# Editor directories and temporary files
+.DS_Store
+.vscode/
+Thumbs.db
+
+# Test coverage reports
+coverage/
+
+# Semantic Release and CI/CD configuration
+.releaserc.local.js
+.releaserc.json
+
+# Other temporary files
+tmp/
+*.tmp
+*.swp
+
+#error
+logs/
+
+#build
+build
