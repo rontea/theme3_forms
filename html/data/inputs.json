@@ -1,0 +1,20 @@
+{
+  "inputs": [
+    {
+      "id": "name",
+      "label": "name",
+      "type": "text",
+      "placeholder": "Enter your name",
+      "class": "input-class",
+      "required": false
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "placeholder": "Enter your email",
+      "class": "email-class",
+      "required": true
+    }
+  ]
+}

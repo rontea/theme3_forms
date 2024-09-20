@@ -8,7 +8,7 @@ const ExampleComponent = {
   template: '<div><h2>{{ message }}</h2></div>',
   data() {
     return {
-      message: 'Hello from Vue 3 component!',
+      message: 'Aria, Anya, and Kairi 2',
     };
   },
 };
@@ -19,3 +19,16 @@ createApp({
     ExampleComponent,
   },
 }).mount('#app');
+
+
+const data = createApp({
+  delimiters: ['[[', ']]'],
+  data() {
+    return {
+      name: 'Aria, Anya, and Kairi',
+    };
+  }
+});
+
+// Mount the app to the #data element
+data.mount('#sample');

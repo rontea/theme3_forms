@@ -5,4 +5,8 @@
 Theme Name: Theme3_forms
 */
 
-/** Test */
+@import "./theme3_forms/global/label-variables";
+@import "./theme3_forms/label/variables";
+
+@import "./theme3_forms//label/mixin";
+@import "./theme3_forms/label/labels";
