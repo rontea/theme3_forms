@@ -1,0 +1,37 @@
+
+
+@import "../theme3_forms/global/inputs-variables";
+@import "../theme3_forms/global/label-variables";
+@import "./variables";
+@import "./themes";
+@import "./mixins";
+
+/**
+ * 
+ * SASS MAIN
+ * 
+ */
+
+
+:root {
+
+    --input-padding: #{$input-padding};
+    --input-border-color: #{$input-border-color};
+    --input-border-radius: #{$input-border-radius};
+    --input-focus-color: #{$input-focus-color};
+    --input-error-color: #{$input-error-color};
+    --label-color: #{$label-color};
+    --label-font-size: #{$label-font-size};
+    --label-font-weight: #{$label-font-weight};
+    --label-required-color: #{$label-required-color};
+
+}
+
+body {
+    @include apply-theme($theme-light);
+}
+@import "../theme3_forms/inputs/mixins-inputs";
+@import "../theme3_forms/inputs/input.scss";
+@import "../theme3_forms/inputs/text";
+@import "./theme3_forms/label/mixins-label";
+@import "./theme3_forms/label/labels";

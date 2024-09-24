@@ -1,11 +1,11 @@
 {
   "inputs": [
     {
-      "id": "name",
+      "id": "text",
       "label": "name",
       "type": "text",
       "placeholder": "Enter your name",
-      "class": "input-class",
+      "class": "text-input , text-input--bshw",
       "required": false
     },
     {

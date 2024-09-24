@@ -1,6 +1,6 @@
 
 {{#if label}}
-    <label for="{{id}}" {{#if class}}class="{{class}}" {{/if}}>{{label-title}}</label>
+    <label for="{{id}}" {{#if class}}class="{{class}}" {{/if}}>{{#if label-title}}{{label-title}}{{else}}{{id}} {{/if}}</label>
 {{/if}}
 
 <input
@@ -11,4 +11,9 @@
     {{/if}}
 />
 
+{{#if error}}
+    <div class="input--error">
+        error sample
+    </div>
+{{/if}}
 

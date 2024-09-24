@@ -1,0 +1,13 @@
+
+/**
+ * 
+ * Input Global
+ * 
+ */
+
+ .input {
+
+   
+        @include error-message();
+    
+ }

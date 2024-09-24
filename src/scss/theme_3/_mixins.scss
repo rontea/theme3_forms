@@ -1,0 +1,22 @@
+@use "sass:map";
+
+/**
+ * 
+ * Main Mixins 
+ * 
+ */
+
+@mixin apply-theme($theme) {
+  background-color: map.get($theme, "background");
+  color: map.get($theme, "text");
+  --primary-color: #{map.get($theme, "primary")};
+  --secondary-color: #{map.get($theme, "secondary")};
+}
+
+// Box Shadow
+
+@mixin box-shadow($x: 0px, $y: 0px, $blur: 0px, $spread: 0px, $color: black) {
+  box-shadow: $x $y $blur $spread $color;
+}
+
+

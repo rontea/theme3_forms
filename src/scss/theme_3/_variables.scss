@@ -1,0 +1,32 @@
+
+/** Components */
+
+$component-color-primary: #0D6EFD;
+$component-color-secondary: #6C757D;
+$component-color-success: #198754;
+$component-color-danger: #DC3545;
+$component-color-warning: #FFC107;
+$component-color-info: #0DCAF0;
+$component-color-dark: #212529;
+$component-color-light: #F8F9FA;
+
+/** Inputs */
+
+$input-color: $component-color-dark;
+$input-border-color: $component-color-dark;
+$input-border-size: 1px;
+$input-border-style: solid;
+$input-border-radius: .4rem;
+$input-focus-color:  $component-color-info;
+$input-error-color: $component-color-danger;
+$input-padding: 0.35rem  0.25rem  0.35rem 0.25rem;
+$input-border: $input-border-size $input-border-style $input-border-color;
+$input-width: 100%;
+
+/** Labels */
+
+$label-font-size: 16px;
+$label-padding:10px;
+$label-color: $component-color-dark;
+$label-font-weight: 500;
+$label-required-color: $component-color-danger;
