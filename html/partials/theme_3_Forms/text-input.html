@@ -1,19 +1,12 @@
-
 {{#if label}}
-    <label for="{{id}}" {{#if class}}class="{{class}}" {{/if}}>{{#if label-title}}{{label-title}}{{else}}{{id}} {{/if}}</label>
+<label for="{{id}}" {{#if class-label}}class="{{class-label}}" {{/if}}>{{#if label-title}}{{label-title}}{{else}}{{id}}
+    {{/if}}</label>
 {{/if}}
 
-<input
-    type="text"
-    {{#if id}}
-        {{#ifEquals id inputs}}
-        {{/ifEquals}}
-    {{/if}}
-/>
+<input type="text" {{#if id}} {{#ifEquals id inputs}} {{/ifEquals}} {{/if}} {{#if required}} required {{/if}} {{#if disabled}} disabled {{/if}}/>
 
 {{#if error}}
-    <div class="input--error">
-        error sample
-    </div>
+<div class="input--error">
+    error sample
+</div>
 {{/if}}
-

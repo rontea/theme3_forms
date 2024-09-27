@@ -8,13 +8,26 @@ layout: default
 
 <main id="sample">
 
-  <p> [[ name  ]] </p>
+  <p> [[ name ]] </p>
 
 </main>
 
-{{> text-input 
-  id="text" 
-  label=true 
-  label-title="Text" 
-  class="label label--block label--required" 
-  error=true }}
+<div class=" container">
+
+
+<div class="input">
+  {{> text-input
+    id="text"
+    label=true
+    label-title="Text"
+    class-label="label label--block label--required"
+    error=true required=true}}
+
+    {{> text-input
+      id="text"
+      label=true
+      label-title="Text"
+      class-label="label label--block"
+      error=true }}
+</div>
+</div>

@@ -1,4 +1,23 @@
 
+/** Fontsize */
+
+/** 1 rem = 10px; 10px/16px = 62.5% */
+
+$font-size: 62.5%;
+
+/** Font sizes */
+
+$font-small: 1.2rem;
+$font-medium: 1.6rem;
+$font-large: 2rem;
+$font-xl: 2.4rem;
+$font-xxl: 3rem;
+
+/** Font Family */
+
+$font-primary: 'Nunito', sans-serif;
+
+
 /** Components */
 
 $component-color-primary: #0D6EFD;
@@ -14,19 +33,35 @@ $component-color-light: #F8F9FA;
 
 $input-color: $component-color-dark;
 $input-border-color: $component-color-dark;
+$input-focus-color: $component-color-info;
+$input-error-color: $component-color-danger;
 $input-border-size: 1px;
 $input-border-style: solid;
 $input-border-radius: .4rem;
-$input-focus-color:  $component-color-info;
-$input-error-color: $component-color-danger;
-$input-padding: 0.35rem  0.25rem  0.35rem 0.25rem;
 $input-border: $input-border-size $input-border-style $input-border-color;
+$input-box-height: 4.5rem;
+$input-padding-y: 1.2rem;
+$input-padding-x: 1.2rem; 
+$input-padding: $input-padding-y $input-padding-x;
 $input-width: 100%;
+$input-placeholder-color: $component-color-dark;
+$input-placeholder-opacity: 0.7;
 
 /** Labels */
 
-$label-font-size: 16px;
-$label-padding:10px;
+$label-font-size: 100%;
+$label-padding: 10px;
 $label-color: $component-color-dark;
 $label-font-weight: 500;
 $label-required-color: $component-color-danger;
+
+
+$input-sizes: (
+  small: (padding: calc(2px + 0.5rem) 1rem, font-size: $font-small),
+  medium: (padding: calc(2px + 0.5rem) 1rem, font-size: $font-medium),
+  large: (padding: 1rem, font-size: $font-large),
+  xl: (padding: 1.25rem, font-size: $font-xl),
+  xxl: (padding: 1.5rem, font-size: $font-xxl)
+);
+
+

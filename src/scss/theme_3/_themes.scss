@@ -1,27 +1,64 @@
-
 /**
- * 
- * Main Themes
- * 
- */
+  * 
+  * Main Themes
+  * 
+  */
 
+$theme-typography-default: (
+
+);
 
 // Light theme variables
+
 $theme-light: (
-  "background": #ffffff,
-  "text": #000000,
+
+  "background": $component-color-light,
+  "text": $component-color-dark,
   "primary": #007bff,
   "secondary": #6c757d
+
 );
 
 // Dark theme variables
 $theme-dark: (
-  "background": #121212,
-  "text": #e0e0e0,
+
+  "background": $component-color-dark,
+  "text": $component-color-light,
   "primary": #bb86fc,
   "secondary": #03dac6
+
 );
 
 $theme-typography-label: (
 
 );
+
+// Input style of box
+$theme-input-box-default : (
+  "height" : $input-box-height,
+  "width" : $input-width,
+  "font-size" : $font-medium,
+  "outline" : none,
+  "border-radius": $input-border-radius,
+  "border" : $input-border,
+  "padding" : $input-padding
+);
+
+// Theme Shadow
+$theme-box-shadow-input : (
+  "x" : 0px,
+  "y" : 0px,
+  "blur" : 5px,
+  "spread" : 0px,
+  "color" : rgba($input-focus-color, 0.5)
+);
+
+// Theme Shadow Default
+$theme-box-shadow-default : (
+  "x" : 0px,
+  "y" : 0px,
+  "blur" : 0px,
+  "spread" : 0px,
+  "color" : $component-color-dark
+);
+

@@ -1,33 +1,55 @@
-
+@use "sass:map";
 /**
  * 
  * Input Mixins
  * 
  */
 
-@mixin input-style($color:$input-color,$padding:$input-padding,$border:$input-border,$border-radius:$input-border-radius){
+
+
+@mixin input-style($theme , $width: $input-width) {
+
     
-    color : $color;
-    padding: $padding;
-    border: $border;
-    border-radius: $border-radius;
+    height: map.get($theme, "height");
+    border: map.get($theme, "border");
+    border-radius: map.get($theme, "border-radius");
     box-sizing: border-box;
+    font-size: map.get($theme , "font-size");
+    outline: map.get($theme, "outline");
+    padding: map.get($theme, "padding");
+    width: $input-width;
+    
 }
 
-@mixin input-focus(){
+@mixin input-size($size-name, $size-values) {
+    
+    padding: map-get($size-values, padding);
+    font-size: map-get($size-values, font-size);
+}
+
+@mixin input-focus($color: $input-focus-color) {
 
     &:focus {
-        border-color: $input-focus-color;
+        border-color: $color;
         outline: none;
-        @include box-shadow(0, 0, 5px, 0 , rgba($input-focus-color, 0.5));
-       
+        @include box-shadow-theme($theme-box-shadow-input);
     }
 }
 
-@mixin error-message($font-size: 0.875rem, $color: $input-error-color,$margin: 3px 0 0 0){
+@mixin input-placeholder($color : $input-placeholder-color , $opacity : $input-placeholder-opacity) {
+
+    &::placeholder{
+        color: $color;
+        opacity: $opacity;
+    }
+   
+}
+
+@mixin error-message($font-size: 90%, $color: $input-error-color, $margin: 3px) {
     &--error {
-      font-size: $font-size;
-      color: $input-error-color;
-      margin: $margin;
+        font-size: $font-size;
+        color: $input-error-color;
+        margin: $margin;
     }
 }
+

@@ -1,33 +1,31 @@
-
 /**
  *  
  * Labels Implementation
  * 
 */
 
-.label{
-   
+.label {
+
     & {
         @include label-style;
     }
 
-     // Inline labels for checkboxes and radio buttons
+    // Inline labels for checkboxes and radio buttons
     &--inline {
         display: inline-block;
         margin-right: 10px;
     }
 
-    &--block{
+    &--block {
         display: block;
         margin-bottom: 2px;
     }
 
     &--required {
-        
+
         &::after {
             content: '*';
             color: var(--label-required-color);
         }
     }
 }
-

@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: $font-size;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: $font-primary;
+    font-weight: 300;
+    line-height: 1.6;
+    @include apply-theme($theme-light);
+}
+
+.container {
+    padding: .5rem;
+    width: 100%;
+    max-width: 500px;
+}

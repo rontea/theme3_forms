@@ -1,14 +1,13 @@
-
 /**
- * 
- * Labels Mixins
- * 
- */
+  
+  Labels Mixins
 
- @mixin label-style($color: var(--label-color)){
+*/
 
-    color: $color;
-    font-size: var(--label-font-size);
-    font-weight: var(--label-font-weight);
-    
- }
+@mixin label-style($color: var(--label-color)) {
+
+   color: $color;
+   font-size: var(--label-font-size);
+   font-weight: var(--label-font-weight);
+
+}

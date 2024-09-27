@@ -1,5 +1,3 @@
-
-
 @import "../theme3_forms/global/inputs-variables";
 @import "../theme3_forms/global/label-variables";
 @import "./variables";
@@ -26,12 +24,10 @@
     --label-required-color: #{$label-required-color};
 
 }
+@import "./reset";
 
-body {
-    @include apply-theme($theme-light);
-}
+@import "./theme3_forms/label/mixins-label";
+@import "./theme3_forms/label/labels";
 @import "../theme3_forms/inputs/mixins-inputs";
 @import "../theme3_forms/inputs/input.scss";
 @import "../theme3_forms/inputs/text";
-@import "./theme3_forms/label/mixins-label";
-@import "./theme3_forms/label/labels";

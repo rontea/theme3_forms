@@ -2,15 +2,15 @@
   "inputs": [
     {
       "id": "text",
-      "label": "name",
+      "name": "text",
       "type": "text",
       "placeholder": "Enter your name",
-      "class": "text-input , text-input--bshw",
-      "required": false
+      "class": "input--style input--focus input--placeholder"
+      
     },
     {
       "id": "email",
-      "label": "Email",
+      "name": "Email",
       "type": "email",
       "placeholder": "Enter your email",
       "class": "email-class",

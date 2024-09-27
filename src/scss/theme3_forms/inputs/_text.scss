@@ -1,10 +1,7 @@
-
 .text-input {
 
     width: #{$input-width};
 
-    @include input-style();
-
+   
     @include input-focus();
 }
-   

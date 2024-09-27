@@ -4,10 +4,61 @@
  * Input Global
  * 
  */
+.input {
 
- .input {
+       font-size: $font-medium;
 
-   
-        @include error-message();
-    
- }
+       .input--style{
+              @include input-style($theme-input-box-default);
+       }
+
+       @each $size, $values in $input-sizes {
+       
+              &--#{$size} {
+                @include input-size($size, $values);
+              }
+
+       }
+
+       &--focus  {
+              @include input-focus();
+       }
+       
+       &--placeholder{
+              @include input-placeholder();
+       }
+
+
+       @include error-message();
+       
+}
+
+.form {
+
+       &--default {
+
+              .inputs--default {
+                    
+                     input[type="text"] {
+                            @include input-style($theme-input-box-default);
+
+                            @include input-focus();
+                     }
+
+                     label {
+                            @include label-style();
+                     }
+
+                     & {
+                            @include error-message();
+                     }
+
+                     & {
+                            @include input-placeholder();
+                     }
+
+                    
+              }
+       }
+}
+
