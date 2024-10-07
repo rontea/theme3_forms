@@ -13,8 +13,14 @@
        }
 
        &__number--style{
-              @include input-style($theme-input-box-default,#{$input-number-width});
-              
+              @include input-style($theme-input-box-default,
+                     #{$input-number-width});
+       }
+
+       &__search--style {
+
+              @include input-style($theme-input-box-search
+              ,$input-search-width);
        }
 
        @each $size, $values in $input-sizes {
@@ -38,15 +44,80 @@
        
 }
 
+
+
+.custom {
+
+       &__checkbox {
+
+              display: flex;
+              align-items: center;
+              margin: $input-padding;
+
+              & input[type="checkbox"] {
+                     display: none; 
+              }
+
+              &-mark {
+                     width: $checkbox-size;
+                     height: $checkbox-size;
+                     border: 1.5px solid $checkbox-border-color;
+                     border-radius: $checkbox-border-radius;
+                     display: inline-block;
+                     position: relative;
+                     transition: background-color 0.2s ease-in-out;
+              }
+
+              & input[type="checkbox"]:checked +  &-mark {
+                     background-color: $checkbox-checked-background;
+                     border-color: $checkbox-border-mark-color;
+              }
+                     
+              & input[type="checkbox"]:checked +  &-mark::after {
+                     content: "";
+                     position: absolute;
+                     top: 50%;
+                     left: 50%;
+                     transform: translate(-50%, -50%) rotate(45deg);
+                     width: calc($checkbox-size / 4);
+                     height: calc($checkbox-size / 2);
+                     border: solid $checkbox-checkmark-color;
+                     border-width: 0 2px 2px 0;
+              }
+              
+              & input[type="checkbox"]:focus +  &-mark {
+                     outline: none;
+                     box-shadow: $checkbox-focus-shadow;
+              }
+
+              &--cursor {
+                     cursor: pointer;
+              }
+
+              &--label {
+                     margin-left: 1rem;
+                     
+              }
+       }
+}
+
+/** Form */
+
 .form {
 
        &--default {
 
               .inputs--default {
                     
-                     input[type="text"] {
+                     input[type="text"], input[type="email"], input[type="url"], input[type="tel"]  {
                             @include input-style($theme-input-box-default);
 
+                            @include input-focus();
+                     }
+
+                     input[type="number"] {
+                            @include input-style($theme-input-box-default,#{$input-number-width});
+                            
                             @include input-focus();
                      }
 
@@ -62,7 +133,6 @@
                             @include input-placeholder();
                      }
 
-                    
               }
        }
 }

@@ -9,6 +9,13 @@
       "autocomplete": "text"
     },
     {
+      "id": "password",
+      "name": "password",
+      "type": "password",
+      "class": "input--style input--focus input--placeholder",
+      "autocomplete": "off"
+    },
+    {
       "id": "email",
       "name": "email",
       "type": "email",
@@ -20,7 +27,7 @@
       "id": "number",
       "name": "number",
       "type": "number",
-      "class": "input__number--style"
+      "class": "input__number--style input--focus"
     },
     {
       "id": "telephone",
@@ -37,6 +44,15 @@
       "placeholder": "Enter URL",
       "class": "input--style input--focus input--placeholder",
       "autocomplete": "url"
+    },
+    {
+      "id": "search",
+      "name": "search",
+      "type": "search",
+      "placeholder": "Search...",
+      "class": "input__search--style input--focus input--placeholder",
+      "autocomplete": "on",
+      "aria-label": "Search through site content"
     }
   ]
 }

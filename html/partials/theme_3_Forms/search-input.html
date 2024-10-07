@@ -1,0 +1,28 @@
+{{#if label}}
+<label for="{{id}}" {{#if class-label}}class="{{class-label}}" {{/if}}>{{#if label-title}}{{label-title}}{{else}}{{id}}
+    {{/if}}</label>
+{{/if}}
+
+<input type="search" 
+{{#if id}} 
+{{#ifEquals id inputs}} 
+
+{{/ifEquals}} 
+{{/if}}
+
+{{#if required}} 
+required 
+{{/if}}
+
+{{#if readonly}} 
+readonly
+{{/if}}
+
+{{#if disabled}} 
+disabled 
+{{/if}}/>
+{{#if error}}
+<div class="input--error">
+    error sample
+</div>
+{{/if}}

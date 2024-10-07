@@ -1,3 +1,4 @@
+@import "../theme_3/functions";
 @import "../theme3_forms/global/inputs-variables";
 @import "../theme3_forms/global/label-variables";
 @import "./variables";
@@ -25,7 +26,7 @@
 
 }
 @import "./reset";
-
+@import "./display";
 @import "./theme3_forms/label/mixins-label";
 @import "./theme3_forms/label/labels";
 @import "../theme3_forms/inputs/mixins-inputs";

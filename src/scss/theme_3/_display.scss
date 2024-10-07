@@ -1,0 +1,38 @@
+.flex {
+    display: flex;
+   
+    &--row{
+        flex-direction: row;
+    }
+
+    /** Justify Content */
+
+    &__fs{
+        justify-content: flex-start;
+    }
+    &__center{
+        justify-content: center;
+    }
+
+    &__sb {
+        justify-content: space-between;
+    }
+
+    
+}
+
+.pf__left--none > *:first-child {
+    padding-left: 0;
+}
+
+.mf__left--none > *:first-child {
+    margin-left: 0;
+}
+
+.pf__right--none > *:first-child {
+    padding-right: 0;
+}
+
+.mf__right--none > *:first-child {
+    margin-right: 0;
+}

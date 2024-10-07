@@ -47,6 +47,18 @@ $input-width: 100%;
 $input-number-width: 7rem;
 $input-placeholder-color: $component-color-dark;
 $input-placeholder-opacity: 0.7;
+$input-search-width: 100%;
+
+/** Checkbox */
+
+
+$checkbox-size: 2rem;
+$checkbox-border-color: lighten($component-color-dark, 45%);
+$checkbox-border-radius: $input-border-radius;
+$checkbox-checked-background: $component-color-success;
+$checkbox-checkmark-color: $component-color-light;
+$checkbox-focus-shadow: 0 0 3px 2px $component-color-info;
+$checkbox-border-mark-color: $component-color-secondary;
 
 
 /** Labels */

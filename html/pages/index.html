@@ -15,41 +15,83 @@ layout: default
 <div class=" container">
 
 
-<div class="input">
-  {{> text-input
-    id="text"
-    label=true
-    label-title="Text"
-    class-label="label label--block label--required"
-    error=true required=true}}
+  <div class="input">
+    {{> text-input
+      id="text"
+      label=true
+      label-title="Text"
+      class-label="label label--block label--required"
+      error=true required=true}}
 
-  {{> email-input
-    id="email"
-    label=true
-    label-title="Email"
-    class-label="label label--block label--required"
-    error=true required=true}}
+    {{> password-input
+      id="password"
+      pattern-required=true
+      label=true
+      label-title="Password"
+      class-label="label label--block"
+      error=true }}
 
-  {{> number-input
-    id="number"
-    label=true
-    label-title="Number"
-    class-label="label label--block"
-    error=true }}
+    {{> email-input
+      id="email"
+      label=true
+      label-title="Email"
+      class-label="label label--block label--required"
+      error=true required=true}}
 
-  {{> tel-input
-    id="telephone"
-    pattern-required=true
-    label=true
-    label-title="Telephone"
-    class-label="label label--block"
-    error=true }}
+    {{> number-input
+      id="number"
+      label=true
+      label-title="Number"
+      class-label="label label--block"
+      error=true }}
+
+    {{> tel-input
+      id="telephone"
+      pattern-required=true
+      label=true
+      label-title="Telephone"
+      class-label="label label--block"
+      error=true }}
+    
+    {{> url-input
+      id="url"
+      label=true
+      label-title="URL"
+      class-label="label label--block"
+      error=true }}
+
+    {{> search-input
+      id="search"
+      label=true
+      label-title="SEARCH"
+      class-label="label label--block"
+      error=true }}
+
+    {{> checkbox-input fieldset=true}}
+
+
+    <div class="flex flex--row flex__fs mf__left--none custom-checkbox">
+      {{> checkbox-input 
+        custom-single=true 
+        id="agree" 
+        name="text1"
+        main-class="main-label"
+        mark-class="sample1"
+        label-class="labeltest label2"
+
+      }}
+
+      {{> checkbox-input 
+        custom-single=true 
+        id="subcribe" 
+        name="test2" 
+      }}
+        
+    </div>
+      
+
+
+    
   
-  {{> url-input
-    id="url"
-    label=true
-    label-title="URL"
-    class-label="label label--block"
-    error=true }}
-</div>
+  </div>
 </div>

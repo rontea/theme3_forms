@@ -1,0 +1,23 @@
+
+
+{{#if fieldset}}
+<fieldset>
+    <legend>Choose your interests:</legend>
+    <label><input type="checkbox" name="interests" value="sports"> Sports</label>
+    <label><input type="checkbox" name="interests" value="music"> Music</label>
+    <label><input type="checkbox" name="interests" value="movies"> Movies</label>
+</fieldset>
+{{/if}}
+
+{{#if custom-single}}
+
+
+<label for="{{id}}" class="custom__checkbox{{#if main-class}} {{main-class}}{{/if}}">
+    <input type="checkbox" id="{{id}}" name="{{id}}" aria-checked="false" 
+        aria-labelledby="{{id}}">
+    <span class=" custom__checkbox-mark custom__checkbox--cursor{{#if mark-class}} {{mark-class}}{{/if}}"></span>
+    <span id="{{id}}" class="custom__checkbox--label custom__checkbox--cursor{{#if label-class}} {{label-class}}{{/if}}">{{name}}</span>
+</label>
+
+
+{{/if}}

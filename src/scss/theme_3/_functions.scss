@@ -1,0 +1,7 @@
+
+/** 
+ * Lighten Color
+ */
+@function lighten-color($color, $amount: 10%) {
+    @return lighten($color, $amount);
+}
