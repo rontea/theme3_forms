@@ -1,12 +1,12 @@
 "use strict";
 
 /**
- * Helper in getting attributes when use the ifEquals
- * @param {*} id
- * @param {*} inputs
- * @returns attributes
+ * Return the attributes of an input based on the id and inputs.
+ * @function
+ * @param {string} id - id of the input.
+ * @param {object} inputs - inputs object from the json file.
+ * @returns {string} attributes of the input.
  */
-
 module.exports = function (id, inputs) {
   let results = "";
 

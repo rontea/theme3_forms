@@ -4,17 +4,39 @@
       "id": "text",
       "name": "text",
       "type": "text",
-      "placeholder": "Enter your name",
-      "class": "input--style input--focus input--placeholder"
-      
+      "placeholder": "Enter your Text",
+      "class": "input--style input--focus input--placeholder",
+      "autocomplete": "text"
     },
     {
       "id": "email",
-      "name": "Email",
+      "name": "email",
       "type": "email",
-      "placeholder": "Enter your email",
-      "class": "email-class",
-      "required": true
+      "placeholder": "Enter your Email",
+      "class": "input--style input--focus input--placeholder",
+      "autocomplete": "email"
+    },
+    {
+      "id": "number",
+      "name": "number",
+      "type": "number",
+      "class": "input__number--style"
+    },
+    {
+      "id": "telephone",
+      "name": "tel",
+      "type": "tel",
+      "placeholder": "Enter Phone Number",
+      "class": "input--style input--focus input--placeholder",
+      "autocomplete": "text"
+    },
+    {
+      "id": "url",
+      "name": "url",
+      "type": "url",
+      "placeholder": "Enter URL",
+      "class": "input--style input--focus input--placeholder",
+      "autocomplete": "url"
     }
   ]
 }

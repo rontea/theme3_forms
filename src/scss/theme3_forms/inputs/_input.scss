@@ -8,8 +8,13 @@
 
        font-size: $font-medium;
 
-       .input--style{
+       &--style{
               @include input-style($theme-input-box-default);
+       }
+
+       &__number--style{
+              @include input-style($theme-input-box-default,#{$input-number-width});
+              
        }
 
        @each $size, $values in $input-sizes {

@@ -44,6 +44,16 @@ $theme-input-box-default : (
   "padding" : $input-padding
 );
 
+$theme-input-number-default : (
+  "height" : $input-box-height,
+  "width" : $input-width,
+  "font-size" : $font-medium,
+  "outline" : none,
+  "border-radius": $input-border-radius,
+  "border" : $input-border,
+  "padding" : $input-padding
+);
+
 // Theme Shadow
 $theme-box-shadow-input : (
   "x" : 0px,

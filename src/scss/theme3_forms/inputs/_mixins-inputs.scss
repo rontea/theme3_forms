@@ -5,11 +5,8 @@
  * 
  */
 
+@mixin input-style($theme ,$width: $input-width) {
 
-
-@mixin input-style($theme , $width: $input-width) {
-
-    
     height: map.get($theme, "height");
     border: map.get($theme, "border");
     border-radius: map.get($theme, "border-radius");
@@ -17,7 +14,7 @@
     font-size: map.get($theme , "font-size");
     outline: map.get($theme, "outline");
     padding: map.get($theme, "padding");
-    width: $input-width;
+    width: $width;
     
 }
 
