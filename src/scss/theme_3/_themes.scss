@@ -85,17 +85,42 @@ $theme-input-box-search : (
   
 );
 
-$theme-input-checkbox-default : (
+$theme-input-checkbox :(
+  "width" : $checkbox-size,
+  "height" : $checkbox-size,
+  "font-size" : $font-medium,
+  "border" : 1px solid $checkbox-border-color,
+  "check-color" : $component-color-light,
+  "border-radius" : $checkbox-border-radius,
+  "checkbox-focus" : $checkbox-focus-shadow,
+  "checkbox-disabled" : $checkbox-disabled-opacity,
+  "checkbox-spacing" : $checkbox-spacing,
+  "check-bg" : $component-color-success,
+  "check-bc" : $checkbox-border-mark-color
+);
+
+$theme-input-checkbox-1: (
   "height" : $checkbox-size,
   "width" : $checkbox-size,
+  "margin" : $input-padding,
   "font-size" : $font-medium,
   "outline" : none,
   "border-radius": $checkbox-border-radius,
   "border" : 1.5px solid $checkbox-border-color,
   "padding" : $input-padding,
-  "display" : inline-block,
-  "position" : relative,
-  "transition" : background-color 0.2s ease-in-out,
+  "checkbox-focus" : $checkbox-focus-shadow,
+  "transition" : $checkbox-checked-background 0.2s ease-in-out,
   "mark-bg" : $checkbox-checked-background,
-  "mark-bc" : $checkbox-border-mark-color
+  "mark-bc" : $checkbox-border-mark-color,
+  "label-margin-left": 1rem,
+  "cursor" : pointer
+ 
+);
+
+$theme-input-checkbox-1-checked: (
+  "mark-width" : calc($checkbox-size / 4),
+  "mark-height" : calc($checkbox-size / 2),
+  "mark-border" : solid $checkbox-checkmark-color,
+  "mark-border-width" : 0 2px 2px 0,
+  "mark-transform" : translate(-50%, -50%) rotate(45deg)
 );

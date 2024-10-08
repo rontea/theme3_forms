@@ -1,3 +1,10 @@
+.container {
+    padding: .5rem;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
 .flex {
     display: flex;
    
@@ -36,3 +43,4 @@
 .mf__right--none > *:first-child {
     margin-right: 0;
 }
+

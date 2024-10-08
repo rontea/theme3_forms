@@ -1,0 +1,101 @@
+
+.display-test {
+    position:absolute;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border: 1px solid #00796b;
+}
+.display-test::before {
+    content: "★"; /* Star icon */
+    color: #ffab00;
+    font-size: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.display-test::after {
+    content: "✔"; /* Checkmark icon */
+    color: #4caf50;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+
+.axis-container {
+    position: relative;  /* Needed for absolute positioning */
+    width: 100%;
+    height: 100vh;
+    margin: 50px auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }
+  
+  /* X-axis */
+  .axis-container::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%; /* Center vertically */
+    height: 2px;
+    background-color: black; /* Line color */
+  }
+  
+  /* Y-axis */
+  .axis-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Center horizontally */
+    width: 2px;
+    background-color: black; /* Line color */
+  }
+  
+  .container-axis {
+    position: relative; /* To allow absolute positioning inside */
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden; /* Hide any overflow */
+    border: 1px solid #ddd;
+  }
+  
+  /* X-axis */
+  .x-axis {
+    position: absolute;
+    top: 50%; /* Center horizontally */
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: red; /* X-axis color */
+    z-index: 0; /* Send the axis behind the content */
+  }
+  
+  /* Y-axis */
+  .y-axis {
+    position: absolute;
+    left: 50%; /* Center vertically */
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: blue; /* Y-axis color */
+    z-index: 0; /* Send the axis behind the content */
+  }
+  
+  /* Content that won't be interfered with */
+    .visual-content {
+        font-size: 16px;
+        color: black;
+        z-index: 1; /* Make sure the content is on top of the axes */
+    }
+
+  .content-1 {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    
+
+  }

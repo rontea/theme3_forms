@@ -4,6 +4,8 @@
  * Input Global
  * 
  */
+@use "sass:map";
+
 .input {
 
        font-size: $font-medium;
@@ -23,6 +25,11 @@
               ,$input-search-width);
        }
 
+       &__checkbox--style {
+              @include checkbox($theme-input-checkbox);
+
+       }
+      
        @each $size, $values in $input-sizes {
        
               &--#{$size} {
@@ -41,63 +48,17 @@
 
 
        @include error-message();
+
+    
        
 }
-
-
 
 .custom {
 
        &__checkbox {
 
-              display: flex;
-              align-items: center;
-              margin: $input-padding;
-
-              & input[type="checkbox"] {
-                     display: none; 
-              }
-
-              &-mark {
-                     width: $checkbox-size;
-                     height: $checkbox-size;
-                     border: 1.5px solid $checkbox-border-color;
-                     border-radius: $checkbox-border-radius;
-                     display: inline-block;
-                     position: relative;
-                     transition: background-color 0.2s ease-in-out;
-              }
-
-              & input[type="checkbox"]:checked +  &-mark {
-                     background-color: $checkbox-checked-background;
-                     border-color: $checkbox-border-mark-color;
-              }
-                     
-              & input[type="checkbox"]:checked +  &-mark::after {
-                     content: "";
-                     position: absolute;
-                     top: 50%;
-                     left: 50%;
-                     transform: translate(-50%, -50%) rotate(45deg);
-                     width: calc($checkbox-size / 4);
-                     height: calc($checkbox-size / 2);
-                     border: solid $checkbox-checkmark-color;
-                     border-width: 0 2px 2px 0;
-              }
-              
-              & input[type="checkbox"]:focus +  &-mark {
-                     outline: none;
-                     box-shadow: $checkbox-focus-shadow;
-              }
-
-              &--cursor {
-                     cursor: pointer;
-              }
-
-              &--label {
-                     margin-left: 1rem;
-                     
-              }
+              @include checkbox-1($theme-input-checkbox-1);
+              @include checkbox-1-checked($theme-input-checkbox-1-checked);
        }
 }
 
@@ -109,7 +70,7 @@
 
               .inputs--default {
                     
-                     input[type="text"], input[type="email"], input[type="url"], input[type="tel"]  {
+                     input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"]  {
                             @include input-style($theme-input-box-default);
 
                             @include input-focus();

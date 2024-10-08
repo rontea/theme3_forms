@@ -9,15 +9,41 @@
 </fieldset>
 {{/if}}
 
-{{#if custom-single}}
-
-
-<label for="{{id}}" class="custom__checkbox{{#if main-class}} {{main-class}}{{/if}}">
-    <input type="checkbox" id="{{id}}" name="{{id}}" aria-checked="false" 
-        aria-labelledby="{{id}}">
-    <span class=" custom__checkbox-mark custom__checkbox--cursor{{#if mark-class}} {{mark-class}}{{/if}}"></span>
-    <span id="{{id}}" class="custom__checkbox--label custom__checkbox--cursor{{#if label-class}} {{label-class}}{{/if}}">{{name}}</span>
+{{#if single}}
+<label 
+    for="{{#if id}}{{ id }}{{else}}default-id{{/if}}"
+    class="{{#if class-label}}{{ class-label }}{{else}}label--checkbox{{/if}}">
+    <input type="checkbox" 
+        id="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
+        name="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
+        value="{{#if value}}{{ value }}{{else}}default-value{{/if}}"
+        class="{{#if class}}input__checkbox--style {{ class }}{{else}}input__checkbox--style{{/if}}"
+        {{#if disabled}} disabled {{/if}}>
+    <span class="label-text"> 
+        {{#if label-title}}{{ label-title }}{{else}}default-label-title{{/if}} 
+    </span>
 </label>
+{{/if}}
 
-
+{{#if custom-single}}
+<label 
+    for="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
+    class="custom__checkbox{{#if main-class}} {{main-class}}{{/if}}">
+    <input 
+        type="checkbox" 
+        id="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
+        name="{{#if id}}{{ id }}{{else}}default-id{{/if}}"
+        value="{{#if value}}{{ value }}{{else}}default-value{{/if}}"
+        {{#if disabled}} disabled {{/if}}
+        aria-checked="false" 
+        aria-labelledby="{{#if id}}{{ id }}{{else}}default-id{{/if}}">
+    <span 
+        class="custom__checkbox-mark custom__checkbox--cursor{{#if mark-class}} {{mark-class}}{{/if}}">
+    </span>
+    <span 
+        id="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
+        class="custom__checkbox--label custom__checkbox--cursor{{#if label-class}} {{label-class}}{{/if}}">
+        {{#if name}}{{ name }}{{else}}default name{{/if}}
+    </span>
+</label>
 {{/if}}

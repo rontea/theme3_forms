@@ -11,3 +11,16 @@
    font-weight: var(--label-font-weight);
 
 }
+
+@mixin label-checkbox-style($margin-left: $checkbox-spacing) {
+  
+  display: flex;
+  align-items: center;
+  margin: $input-padding;
+  cursor: pointer;
+
+  span {
+    margin-left: $margin-left;
+  }
+ 
+}

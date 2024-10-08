@@ -3,11 +3,25 @@
  * Labels Implementation
  * 
 */
-
+@use "sass:map";
 .label {
 
     & {
         @include label-style;
+    }
+
+    &--checkbox {
+        @include label-checkbox-style;
+
+        .check--none{
+            appearance: none;
+
+            &:checked {
+                background-color: map.get($theme-input-checkbox, "check-bg");
+                border-color: map.get($theme-input-checkbox, "check-bc");
+            }
+        }
+    
     }
 
     // Inline labels for checkboxes and radio buttons

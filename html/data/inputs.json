@@ -6,7 +6,8 @@
       "type": "text",
       "placeholder": "Enter your Text",
       "class": "input--style input--focus input--placeholder",
-      "autocomplete": "text"
+      "autocomplete": "text",
+      "aria-required": "true"
     },
     {
       "id": "password",
@@ -22,6 +23,7 @@
       "placeholder": "Enter your Email",
       "class": "input--style input--focus input--placeholder",
       "autocomplete": "email"
+      
     },
     {
       "id": "number",

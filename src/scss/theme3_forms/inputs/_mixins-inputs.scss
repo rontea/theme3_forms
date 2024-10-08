@@ -5,6 +5,7 @@
  * 
  */
 
+/** input style */
 @mixin input-style($theme ,$width: $input-width) {
 
     height: map.get($theme, "height");
@@ -18,12 +19,14 @@
     
 }
 
+/** Sizes */
 @mixin input-size($size-name, $size-values) {
     
     padding: map-get($size-values, padding);
     font-size: map-get($size-values, font-size);
 }
 
+/** Focus */
 @mixin input-focus($color: $input-focus-color) {
 
     &:focus {
@@ -33,6 +36,7 @@
     }
 }
 
+/** Placeholder */
 @mixin input-placeholder($color : $input-placeholder-color , $opacity : $input-placeholder-opacity) {
 
     &::placeholder{
@@ -41,7 +45,7 @@
     }
    
 }
-
+/** Error Message */
 @mixin error-message($font-size: 90%, $color: $input-error-color, $margin: 3px) {
     &--error {
         font-size: $font-size;
@@ -49,4 +53,82 @@
         margin: $margin;
     }
 }
+/** Checkbox */
+@mixin checkbox($theme) {
+    
+    width: map.get($theme, "width");
+    height: map.get($theme, "height");
+    font-size: map.get($theme , "font-size");
+    border: map.get($theme, "border");
+    border-radius: map.get($theme, "border-radius");
+    display: inline-block;
+    position: relative;
 
+    &:checked {
+        border: map.get($theme, "border");
+    }
+
+   
+    &:focus {
+        outline: none;
+        box-shadow: map.get($theme, "checkbox-focus");
+    }
+
+    &:disabled {
+        opacity: map.get($theme, "checkbox-disabled");
+    }
+}
+
+/** Checkbox Custom Theme Checkbox-1 */
+@mixin checkbox-1($theme) {
+    display: flex;
+    align-items: center;
+    margin: map.get($theme, "margin");
+
+    & input[type="checkbox"] {
+        display: none; 
+    }
+
+    &-mark {
+        width: map.get($theme, "width");
+        height: map.get($theme, "height");
+        border: map.get($theme, "border");
+        border-radius: map.get($theme, "border-radius");
+        display: inline-block;
+        position: relative;
+        transition: map.get($theme, "transition");
+    }
+
+    & input[type="checkbox"]:checked + &-mark {
+        background-color: map.get($theme, "mark-bg");
+        border-color: map.get($theme, "mark-bc");
+    }
+
+    & input[type="checkbox"]:focus +  &-mark {
+        outline: none;
+        box-shadow: map.get($theme, "checkbox-focus");
+    }
+
+    &--cursor {
+        cursor: map.get($theme, "cursor");
+    }
+
+    &--label {
+        margin-left: map.get($theme, "label-margin-left");    
+    }
+
+}
+
+@mixin checkbox-1-checked($theme) {
+    & input[type="checkbox"]:checked + &-mark::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: map.get($theme, "mark-transform");
+        width: map.get($theme, "mark-width");
+        height: map.get($theme, "mark-height");
+        border: map.get($theme, "mark-border");
+        border-width: map.get($theme, "mark-border-width");
+    }
+}

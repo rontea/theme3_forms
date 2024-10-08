@@ -19,8 +19,3 @@ body {
     @include apply-theme($theme-light);
 }
 
-.container {
-    padding: .5rem;
-    width: 100%;
-    max-width: 500px;
-}
