@@ -28,6 +28,8 @@ $component-color-warning: #FFC107;
 $component-color-info: #0DCAF0;
 $component-color-dark: #212529;
 $component-color-light: #F8F9FA;
+$component-color-white: #fff;
+$component-color-gray: #ccc;
 
 /** Inputs */
 
@@ -57,10 +59,31 @@ $checkbox-border-color: lighten($component-color-dark, 45%);
 $checkbox-border-radius: $input-border-radius;
 $checkbox-checked-background: $component-color-success;
 $checkbox-checkmark-color: $component-color-light;
-$checkbox-focus-shadow: 0 0 3px 2px $component-color-info;
+$checkbox-focus-shadow: 0 0 5px 2px rgba($input-focus-color, 0.5);
 $checkbox-border-mark-color: $component-color-secondary;
 $checkbox-spacing: 0.8rem;
 $checkbox-disabled-opacity: 0.5;
+
+/** Checkbox Slider */
+
+$chk-slider-width: 6rem;
+$chk-slider-height: 3.4rem;
+$chk-slider-background-color: $component-color-gray;
+$chk-border: 1px solid;
+$chk-slider-border-radius: 3.4rem;
+$chk-ball-color: $component-color-light;
+$chk-ball-border-radius: 50%;
+$chk-ball-border: 1px solid $component-color-dark;
+$chk-slider-inactive-background-color: $component-color-light;
+$chk-slider-active-background-color: $component-color-success;
+$chk-slider-disabled-opacity: $checkbox-disabled-opacity;
+$chk-slider-inside-width: 2.6rem;
+$chk-slider-inside-height: 2.6rem;
+$chk-slider-inside-x: 4px;
+$chk-slider-inside-y: 4px;
+$chk-slider-inside-limit: $chk-slider-inside-width;
+$chk-slider-focus-shadow: $checkbox-focus-shadow;
+$chk-slider-hover-color: $component-color-info;
 
 
 /** Labels */

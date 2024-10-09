@@ -2,6 +2,23 @@
 /** 
  * Lighten Color
  */
+@use "sass:map";
+
 @function lighten-color($color, $amount: 10%) {
     @return lighten($color, $amount);
+}
+
+@function darken-color($color, $amount: 10%) {
+    @return darken($color, $amount);
+}
+
+@function generate-shadow-dafault($theme) {
+
+    $x : map.get($theme, "x");
+    $y : map.get($theme, "y");
+    $blur : map.get($theme, "blur");
+    $spread : map.get($theme, "spread");
+    $color : map.get($theme, "color");
+
+    @return $x $y $blur $spread $color;
 }

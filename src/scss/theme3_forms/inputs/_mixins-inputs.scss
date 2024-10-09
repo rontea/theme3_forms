@@ -27,12 +27,12 @@
 }
 
 /** Focus */
-@mixin input-focus($color: $input-focus-color) {
+@mixin input-focus($color: $input-focus-color, $theme: $theme-box-shadow-default) {
 
     &:focus {
         border-color: $color;
         outline: none;
-        @include box-shadow-theme($theme-box-shadow-input);
+        @include box-shadow-theme($theme);
     }
 }
 
@@ -69,11 +69,6 @@
     }
 
    
-    &:focus {
-        outline: none;
-        box-shadow: map.get($theme, "checkbox-focus");
-    }
-
     &:disabled {
         opacity: map.get($theme, "checkbox-disabled");
     }
@@ -86,7 +81,9 @@
     margin: map.get($theme, "margin");
 
     & input[type="checkbox"] {
-        display: none; 
+        opacity: 0;
+        width: 0;
+        height: 0;
     }
 
     &-mark {
@@ -107,6 +104,7 @@
     & input[type="checkbox"]:focus +  &-mark {
         outline: none;
         box-shadow: map.get($theme, "checkbox-focus");
+        border-color: $input-focus-color;
     }
 
     &--cursor {
@@ -116,6 +114,8 @@
     &--label {
         margin-left: map.get($theme, "label-margin-left");    
     }
+
+  
 
 }
 
@@ -131,4 +131,71 @@
         border: map.get($theme, "mark-border");
         border-width: map.get($theme, "mark-border-width");
     }
+}
+
+@mixin checkbox-slider($theme) {
+    
+      position: relative;
+      display: inline-block;
+      width: map.get($theme, "width");
+      height: map.get($theme, "height");
+
+      & input[type="checkbox"] {
+
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+      }
+
+      &__slider {
+
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: map.get($theme, "background-color");
+        transition: map.get($theme, "transition");
+        border: map.get($theme, "border");
+        border-radius: map.get($theme, "border-radius");
+      }
+
+      &__slider:before {
+        position: absolute;
+        content: "";
+        height: map.get($theme, "slider-inside-height");
+        width: map.get($theme, "slider-inside-width");
+        left: map.get($theme, "slider-inside-x");
+        bottom: map.get($theme, "slider-inside-y");
+        background-color: map.get($theme, "chk-ball-color");
+        transition: map.get($theme, "transition");
+        border-radius: map.get($theme, "chk-ball-border-radius");
+        border: map.get($theme, "chk-ball-border");
+
+      }
+
+      & input[type="checkbox"]:checked + &__slider {
+        background-color: map.get($theme,"slider-active-background-color");
+      }
+
+      & input[type="checkbox"]:checked + &__slider:before {
+        transform: translateX(map.get($theme, "slider-inside-limit"));
+      }
+
+      & input[type="checkbox"]:focus + &__slider {
+        outline: none;        
+        box-shadow: map.get($theme, "focus-shadow");
+      }
+
+      & input[type="checkbox"]:hover + &__slider {
+        box-shadow: map.get($theme, "focus-shadow");
+      }     
+
+      & input[type="checkbox"]:disabled + &__slider {
+        opacity: map.get($theme, "slider-disabled-opacity");
+        cursor: map.get($theme, "cursor");
+      }
+  
 }

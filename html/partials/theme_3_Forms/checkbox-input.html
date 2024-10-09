@@ -17,7 +17,7 @@
         id="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
         name="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
         value="{{#if value}}{{ value }}{{else}}default-value{{/if}}"
-        class="{{#if class}}input__checkbox--style {{ class }}{{else}}input__checkbox--style{{/if}}"
+        class="{{#if class}}input__checkbox--style {{ class }}{{else}}input__checkbox--style input--focus{{/if}}"
         {{#if disabled}} disabled {{/if}}>
     <span class="label-text"> 
         {{#if label-title}}{{ label-title }}{{else}}default-label-title{{/if}} 
@@ -37,13 +37,36 @@
         {{#if disabled}} disabled {{/if}}
         aria-checked="false" 
         aria-labelledby="{{#if id}}{{ id }}{{else}}default-id{{/if}}">
+       
     <span 
-        class="custom__checkbox-mark custom__checkbox--cursor{{#if mark-class}} {{mark-class}}{{/if}}">
+        class="custom__checkbox-mark custom__checkbox--cursor {{#if mark-class}} {{mark-class}}{{/if}}">
     </span>
     <span 
         id="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
-        class="custom__checkbox--label custom__checkbox--cursor{{#if label-class}} {{label-class}}{{/if}}">
+        class="custom__checkbox--label custom__checkbox--cursor {{#if label-class}} {{label-class}}{{/if}}">
         {{#if name}}{{ name }}{{else}}default name{{/if}}
+    </span>
+</label>
+{{/if}}
+
+{{#if slider}}
+<label
+    for="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
+    class="{{#if main-class}}switch-checkbox {{ main-class }}{{else}}switch-checkbox{{/if}}">
+
+    <input 
+        type="checkbox"
+        id="{{#if id}}{{ id }}{{else}}default-id{{/if}}"
+        name="{{#if id}}{{ id }}{{else}}default-id{{/if}}"
+        value="{{#if value}}{{ value }}{{else}}default-value{{/if}}"
+        class="{{#if input-class}}{{ input-class }}{{/if}}"
+        {{#if disabled}} disabled {{/if}}
+        aria-checked="false" 
+        aria-labelledby="{{#if id}}{{ id }}{{else}}default-id{{/if}}">
+        >
+
+    <span id="{{#if id}}{{ id }}{{else}}default-id{{/if}}" 
+        class="{{#if label-class}}switch-checkbox__slider {{ label-class }}{{else}}switch-checkbox__slider{{/if}}">
     </span>
 </label>
 {{/if}}

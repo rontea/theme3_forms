@@ -67,46 +67,51 @@ layout: default
       class-label="label label--block"
       error=true }}
 
-  <div class="flex flex--row flex__fs mf__left--none">
-    {{> checkbox-input 
-      custom-single=true 
-      id="agree" 
-      name="text1 on other"
-      value="text1"
-      main-class="main-label"
-      mark-class="sample1"
-      label-class="labeltest label2"
+    <div class="flex flex--row flex__fs mf__left--none">
+      {{> checkbox-input 
+        custom-single=true 
+        id="agree" 
+        name="text1 on other"
+        value="text1"
+        main-class="main-label"
+        mark-class="sample1"
+        label-class="labeltest label2"
 
+      }}
+
+      {{> checkbox-input 
+        custom-single=true 
+        id="subcribe" 
+        name="test2" 
+      }}
+        
+    </div>
+
+    <div class="flex flex--row mf__left--none">
+      {{> checkbox-input 
+        single=true
+        id="questions" 
+        value="bike"
+        class="check--none input--focus"
+        label-title="I have a bike with apperance none"
+      }}
+
+      {{> checkbox-input 
+        single=true
+        id="questions2" 
+        value="car"
+        label-title="I have a car with appearance"
+      }}
+
+     
+    </div>
+
+    {{> checkbox-input
+      slider=true
+      id="slider"
+      value="setting"
     }}
 
-    {{> checkbox-input 
-      custom-single=true 
-      id="subcribe" 
-      name="test2" 
-    }}
-      
   </div>
-
-  <div class="flex flex--row mf__left--none">
-    {{> checkbox-input 
-      single=true
-      id="questions" 
-      value="bike"
-      class="check--none"
-      label-title="I have a bike with apperance none"
-    }}
-
-    {{> checkbox-input 
-      single=true
-      id="questions2" 
-      value="car"
-      label-title="I have a car with appearance"
-    }}
-  </div>
-      
-
-
-    
   
-  </div>
 </div>

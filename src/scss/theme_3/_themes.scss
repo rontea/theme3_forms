@@ -38,7 +38,7 @@ $theme-box-shadow-input : (
   "x" : 0px,
   "y" : 0px,
   "blur" : 5px,
-  "spread" : 0px,
+  "spread" : 2px,
   "color" : rgba($input-focus-color, 0.5)
 );
 
@@ -46,9 +46,9 @@ $theme-box-shadow-input : (
 $theme-box-shadow-default : (
   "x" : 0px,
   "y" : 0px,
-  "blur" : 0px,
-  "spread" : 0px,
-  "color" : $component-color-dark
+  "blur" : 5px,
+  "spread" : 2px,
+  "color" : $input-focus-color
 );
 
 // Input style of box
@@ -123,4 +123,29 @@ $theme-input-checkbox-1-checked: (
   "mark-border" : solid $checkbox-checkmark-color,
   "mark-border-width" : 0 2px 2px 0,
   "mark-transform" : translate(-50%, -50%) rotate(45deg)
+);
+
+
+$theme-input-checkbox-slider : (
+  "width" : $chk-slider-width,
+  "height" : $chk-slider-height,
+  "curosr": pointer,
+  "background-color" : $chk-slider-background-color,
+  "transition" : 0.4s,
+  "border" : $chk-border,
+  "border-radius" : $chk-slider-border-radius,
+  "slider-inside-width" : $chk-slider-inside-width,
+  "slider-inside-height" : $chk-slider-inside-height,
+  "slider-inside-x" : $chk-slider-inside-x,
+  "slider-inside-y" : $chk-slider-inside-y,
+  "chk-ball-color" : $chk-ball-color,
+  "chk-ball-border" : $chk-ball-border,
+  "chk-ball-border-radius" : $chk-ball-border-radius,
+  "slider-inactive-background-color" : $chk-slider-inactive-background-color,
+  "slider-active-background-color" : $chk-slider-active-background-color,
+  "slider-disabled-opacity" : $chk-slider-disabled-opacity,
+  "slider-inside-limit" : $chk-slider-inside-limit,
+  "focus-shadow" : $chk-slider-focus-shadow,
+  "hover-color": $chk-slider-hover-color,
+  
 );

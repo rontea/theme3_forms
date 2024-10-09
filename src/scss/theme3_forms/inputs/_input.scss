@@ -53,6 +53,11 @@
        
 }
 
+.switch-checkbox{
+
+       @include checkbox-slider($theme-input-checkbox-slider);
+}
+
 .custom {
 
        &__checkbox {
