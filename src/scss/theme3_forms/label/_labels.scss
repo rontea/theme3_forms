@@ -10,6 +10,12 @@
         @include label-style;
     }
 
+    &__filled--style {
+
+        @include input-label-filled($theme-input-filled);
+
+    }
+
     &--checkbox {
         @include label-checkbox-style;
 

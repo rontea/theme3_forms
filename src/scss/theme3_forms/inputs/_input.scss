@@ -14,6 +14,10 @@
               @include input-style($theme-input-box-default);
        }
 
+       &__style--filled{
+              @include input-style-filled($theme-input-filled);
+       }
+
        &__number--style{
               @include input-style($theme-input-box-default,
                      #{$input-number-width});
@@ -41,9 +45,21 @@
        &--focus  {
               @include input-focus();
        }
+
+       &--disabled {
+              @include input-disabled($theme-input-disabled);
+       }
        
        &--placeholder{
               @include input-placeholder();
+       }
+
+       &--required {
+              @include input-required();
+       }
+
+       &--helper {
+              @include helper-message();
        }
 
 

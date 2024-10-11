@@ -1,0 +1,55 @@
+
+
+<div class="demo-page">
+
+    {{> text-input
+        id="username"
+        label=true
+        label-title="Username"
+        class-label="label label--block label--required"
+        input-attrs='
+        autofocus=true
+        autocomplete="username"
+        placeholder="Enter Username"'
+        required=true
+        error=true }}
+
+</div>
+
+
+<div class="demo-page">
+
+    {{> text-input
+        id="disabled"
+        label=true
+        label-title="Disable Input"
+        class-label="label label--block label--required"
+        input-class-add="new-addition"
+        input-attrs='
+            placeholder="Diabled Input"
+        '
+        required=true
+        disabled=true
+         }}
+
+</div>
+
+
+<div class="demo-page">
+
+    {{> text-input
+        input-filled=true
+        id="username"
+        label=true
+        label-title="Input Filled"
+        input-attrs='
+        autofocus=true
+        autocomplete="input filled"
+        placeholder="Enter Input Filled"'
+        required=true
+        helper=true
+        error=true
+      
+         }}
+
+</div>

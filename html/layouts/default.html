@@ -5,7 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/styles.css" >
+    {{#ifpage 'visual' 'demo-text-input'}}
+      <link rel="stylesheet" href="../css/styles.css" >
+    {{/ifpage}}
+    {{#ifpage 'index'}}
+      <link rel="stylesheet" href="css/styles.css" >
+    {{/ifpage}}
+   
 
     
     <title> Theme3_forms </title>

@@ -1,13 +1,34 @@
-{{#if label}}
-<label for="{{id}}" {{#if class-label}}class="{{class-label}}" {{/if}}>{{#if label-title}}{{label-title}}{{else}}{{id}}
-    {{/if}}</label>
+
+{{#if input-filled}}
+<div class="input__filled--wrapper"> 
+
+{{else}}
+    <!-- Label Default -->
+    {{#if label}}
+    <label 
+        for="{{id}}" 
+        class="{{#if class-label}}{{class-label}} {{else}} {{/if}}">
+
+        {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}
+    </label>
+    {{/if}}
 {{/if}}
 
 <input type="text" 
-{{#if id}} 
-{{#ifEquals id inputs}} 
+{{#if id}}
+    {{#if data}} 
+        {{#ifEquals id inputs}} 
 
-{{/ifEquals}} 
+        {{/ifEquals}} 
+        {{else}}
+        id="{{#if id}}{{id}}{{else}}id-default{{/if}}"
+        name="{{#if name}}{{name}}{{else}}{{#if id}}{{id}}{{else}}name-default{{/if}}{{/if}}"
+        class="{{#if input-class}}{{input-class}}{{else}}
+            {{#if input-filled}}input__style--filled 
+            {{else}}input--style input--focus input--placeholder{{/if}} {{#if input-class-add}} {{input-class-add}}{{/if}} {{#if disabled}} input--disabled{{/if}}{{/if}}"
+        {{#if input-attrs}} {{{ input-attrs}}} {{/if}}
+        arial-invalid="false"
+    {{/if}}
 {{/if}}
 
 {{#if pattern-required}}
@@ -32,11 +53,46 @@ required
 readonly
 {{/if}}
 
+aria-describedby="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-help{{/if}}"
+
+{{#if label}}
+{{else}}
+aria-labelledby="{{id}}"
+{{/if}}
+
 {{#if disabled}} 
 disabled 
 {{/if}}/>
+
+{{#if input-filled}}
+ <!-- Label filled -->
+    {{#if label}}
+    <label 
+        for="{{id}}" 
+        class="{{#if class-label}}class="{{class-label}} {{else}}label__filled--style {{/if}}">
+
+        {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}{{#if required}}<span class="{{#if class-required}}{{else}}input--required{{/if}}"> *</span>{{/if}}
+    </label>
+    {{/if}}
+{{/if}}
+
+{{#if helper}}
+<span 
+    class="{{#if class-helper}}{{else}}input--helper{{/if}}"
+    id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-help{{/if}}">
+    {{#if helper-message}} {{helper-message}} {{else}} No helper-message define {{/if}}
+</span>
+{{/if}}
+
 {{#if error}}
-<div class="input--error">
-    error sample
-</div>
+<span  class="{{#if class-error}}{{else}}input--error{{/if}} 
+    id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-error{{/if}}">
+    {{#if error-value}}{{error-value}}{{else}}Error on {{id}}{{/if}}
+</span>
+{{/if}}
+
+
+
+{{#if input-filled}}
+ </div>
 {{/if}}

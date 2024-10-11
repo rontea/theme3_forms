@@ -44,10 +44,18 @@ $theme-box-shadow-input : (
 
 // Theme Shadow Default
 $theme-box-shadow-default : (
-  "x" : 0px,
-  "y" : 0px,
+  "x" : 0,
+  "y" : 0,
   "blur" : 5px,
   "spread" : 2px,
+  "color" : $input-focus-color
+);
+
+$theme-box-shadow-input-filled-default : (
+  "x" : 0,
+  "y" : 2px,
+  "blur" : 4px,
+  "spread" : 0,
   "color" : $input-focus-color
 );
 
@@ -60,6 +68,34 @@ $theme-input-box-default : (
   "border-radius": $input-border-radius,
   "border" : $input-border,
   "padding" : $input-padding
+);
+
+$theme-input-filled : (
+  "height" : $input-filled-height,
+  "width" : $input-width,
+  "font-size" : $font-medium,
+  "color": $input-color,
+  "outline" : none,
+  "border-radius": $input-border-radius,
+  "padding" : $input-padding,
+  "input-filled-border-bottom" : 2px solid $input-border-color,
+  "input-filled-border-bottom-focus" : 2px solid $input-focus-color,
+  "label-placeholder-color" : $input-placeholder-color,
+  "label-input-color" : $input-placeholder-color,
+  "label-y" : $label-input-filled-top,
+  "lable-x" : $label-input-filled-left,
+  "label-font-size" : $font-medium,
+  "transition" : all 0.2s ease
+  
+);
+
+
+
+$theme-input-disabled : (
+  "color" : $input-disabled-text-color,
+  "background-color" : $input-disabled-bg-color,
+  "opacity" : $input-disabled-opacity,
+  "cursor" : not-allowed
 );
 
 // Input style of number

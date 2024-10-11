@@ -51,6 +51,16 @@ $input-placeholder-color: $component-color-dark;
 $input-placeholder-opacity: 0.7;
 $input-search-width: 100%;
 
+/** Input filled */
+$input-filled-height: 6rem;
+
+/** Input Disabled */
+
+$input-disabled-bg-color: $component-color-gray;
+$input-disabled-text-color: $component-color-dark;
+$input-disabled-opacity: 0.5;
+
+
 /** Checkbox */
 
 
@@ -83,7 +93,7 @@ $chk-slider-inside-x: 4px;
 $chk-slider-inside-y: 4px;
 $chk-slider-inside-limit: $chk-slider-inside-width;
 $chk-slider-focus-shadow: $checkbox-focus-shadow;
-$chk-slider-hover-color: $component-color-info;
+$chk-slider-hover-color: $component-color-warning;
 
 
 /** Labels */
@@ -93,6 +103,21 @@ $label-padding: 10px;
 $label-color: $component-color-dark;
 $label-font-weight: 500;
 $label-required-color: $component-color-danger;
+
+/** Label input filled */
+
+$label-input-filled-color: $input-placeholder-color;
+$label-input-filled-top: 2rem;
+$label-input-filled-left:  2rem;
+
+/** input extra */
+
+$input-helper-font-size: $font-medium;
+$input-helper-color: $component-color-warning;
+$input-helper-font-weight: 400;
+$input-helper-margin: 2px;
+
+
 
 
 $input-sizes: (

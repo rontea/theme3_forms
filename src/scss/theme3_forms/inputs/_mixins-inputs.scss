@@ -19,6 +19,60 @@
     
 }
 
+@mixin input-style-filled($theme,$theme-back-shadow: $theme-box-shadow-input-filled-default, $class-label : "label__filled--style") {
+    
+   
+    position: relative;
+    height: map.get($theme, "height");
+    width: map.get($theme, "width");
+    font-size: map.get($theme, "font-size");
+    color: map.get($theme, "color");
+    background-color: map.get($theme, "background-color");
+    border: none;
+    border-radius: map.get($theme, "border-radius");
+    padding: map.get($theme, "padding");
+    border-bottom: map.get($theme, "input-filled-border-bottom");
+    
+    /** Hide placeholder */
+    &::placeholder {
+        opacity: 0;
+    }
+
+    &:focus{
+        border-bottom: map.get($theme, "input-filled-border-bottom-focus");
+        outline: none;
+        @include box-shadow-theme($theme-back-shadow);
+
+        + label {
+            top: -.4rem;
+            font-size: 1.5rem;
+            color: map.get($theme, "label-placeholder-color");
+            opacity: 1;
+        }
+    }
+
+    /** When there is text make sure that label stay on top */
+    &:not(:placeholder-shown) + .#{$class-label} {
+        top: -.4rem;
+        font-size: 1.5rem;
+        color: map.get($theme, "label-placeholder-color");
+        opacity: 1;
+    }
+}
+
+/** filled label */
+
+@mixin input-label-filled($theme) {
+ 
+    position: absolute;
+    top: map.get($theme, "label-y");
+    left: map.get($theme, "lable-x");
+    color: map.get($theme, "label-input-color");
+    opacity: .7;
+    transition: map.get($theme, "transition");
+
+ }
+
 /** Sizes */
 @mixin input-size($size-name, $size-values) {
     
@@ -45,6 +99,25 @@
     }
    
 }
+/** disabled */
+@mixin input-disabled($theme) {
+    color: map.get($theme, "color");
+    background-color: map.get($theme, "background-color");
+    opacity: map.get($theme, "opacity");
+    cursor: map.get($theme, "cursor");
+}
+/** required */
+@mixin input-required($color : $component-color-danger) {
+    color: $color;
+}
+
+/** helper message */
+@mixin helper-message($font-size: $input-helper-font-size, $color: $input-helper-color, $margin: $input-helper-margin) {
+    font-size: $font-size;
+    color: $color;
+    margin: $margin;
+}
+
 /** Error Message */
 @mixin error-message($font-size: 90%, $color: $input-error-color, $margin: 3px) {
     &--error {
@@ -199,3 +272,33 @@
       }
   
 }
+
+/**
+  
+  Labels Mixins
+
+*/
+
+@mixin label-style($color: var(--label-color)) {
+
+    color: $color;
+    font-size: var(--label-font-size);
+    font-weight: var(--label-font-weight);
+ 
+ }
+
+
+ 
+ @mixin label-checkbox-style($margin-left: $checkbox-spacing) {
+   
+   display: flex;
+   align-items: center;
+   margin: $input-padding;
+   cursor: pointer;
+ 
+   span {
+     margin-left: $margin-left;
+   }
+  
+ }
+ 
