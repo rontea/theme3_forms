@@ -26,7 +26,7 @@
         class-label="label label--block label--required"
         input-class-add="new-addition"
         input-attrs='
-            placeholder="Diabled Input"
+            placeholder="Disabled Input"
         '
         required=true
         disabled=true
@@ -39,7 +39,7 @@
 
     {{> text-input
         input-filled=true
-        id="username"
+        id="input-filled"
         label=true
         label-title="Input Filled"
         input-attrs='
@@ -50,6 +50,129 @@
         helper=true
         error=true
       
-         }}
+    }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> text-input
+        input-filled=true
+        input-filled-outline=true
+        id="input-filled-bordered"
+        label=true
+        label-title="Input Filled Border"
+        input-attrs='
+        autofocus=true
+        autocomplete="input filled"
+        placeholder="Enter Input Filled"'
+        required=true
+        helper=true
+        error=true
+      
+    }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> text-input
+        input-filled=true
+        id="disabled-input-filled"
+        label=true
+        label-title="Input Filled Disabled"
+        input-attrs='
+        autofocus=true
+        autocomplete="input filled"
+        placeholder="Enter Input Filled"'
+        required=true
+        helper=true
+        error=true
+        disabled=true
+      
+    }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> text-input
+        input-filled=true
+        icon-leading=true
+        icon-mark-leading='<i class="bi bi-input-cursor-text input__icon--leading"></i>'
+       
+        id="input-filled-with-icon"
+        label=true
+        label-title="Input Filled With Icon"
+        input-attrs='
+        autofocus=true
+        autocomplete="input filled"
+        placeholder="Enter Input Filled"'
+        required=true
+        helper=true
+        error=true
+      
+    }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> text-input
+        input-filled=true
+        icon-trailing=true
+        id="input-filled-with-icon2"
+        label=true
+        label-title="Input Filled With Icon2"
+        input-attrs='
+        autofocus=true
+        autocomplete="input filled"
+        placeholder="Enter Input Filled"'
+        required=true
+        helper=true
+        
+      
+    }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> text-input
+        input-filled=true
+        icon-leading=true
+        icon-trailing=true
+        id="input-filled-with-icon3"
+        label=true
+        label-title="Input Filled With Icon3"
+        input-attrs='
+        autofocus=true
+        autocomplete="input filled"
+        placeholder="Enter Input Filled"'
+        required=true
+        helper=true
+        
+      
+    }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> text-input
+        input-icon=true
+        icon-leading=true
+        icon-trailing=true
+        icon-mark-trailing='<i class="bi bi-person-check input__style--trailing"></i>'
+        id="first_name"
+        label=true
+        label-title="First Name"
+        class-label="label label--block label--required"
+        input-attrs='
+        autofocus=true
+        autocomplete="first name"
+        placeholder="Enter First Name"'
+        required=true
+        error=true }}
 
 </div>

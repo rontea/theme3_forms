@@ -12,7 +12,7 @@ Panini is using Handlebars and the Theme3 forms runs on Theme_3
 
 #### Input
 
-    ```html
+```html
 
     <div class="demo-page">
 
@@ -29,5 +29,5 @@ Panini is using Handlebars and the Theme3 forms runs on Theme_3
             error=true }}
 
     </div>
-    ```
+```
 

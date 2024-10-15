@@ -32,6 +32,21 @@
     border-radius: map.get($theme, "border-radius");
     padding: map.get($theme, "padding");
     border-bottom: map.get($theme, "input-filled-border-bottom");
+
+    &--outlined {
+        border: map.get($theme, "outlined-border");
+
+        &:focus {
+            border: map.get($theme, "input-filled-border-bottom-focus");
+            outline: none;
+            @include box-shadow-theme($theme-box-shadow-input-filled-default);
+
+            + label {
+                background-color: map.get($theme, "outlined-label-background-color");
+                padding: map.get($theme, "outlined-label-padding");
+            }
+        }
+    }
     
     /** Hide placeholder */
     &::placeholder {
@@ -44,19 +59,19 @@
         @include box-shadow-theme($theme-back-shadow);
 
         + label {
-            top: -.4rem;
-            font-size: 1.5rem;
+            top:  map.get($theme, "text-top-position-y");
+            font-size:  map.get($theme, "text-top-font-size");
             color: map.get($theme, "label-placeholder-color");
-            opacity: 1;
+            opacity: map.get($theme, "text-top-opacity");
         }
     }
 
     /** When there is text make sure that label stay on top */
     &:not(:placeholder-shown) + .#{$class-label} {
-        top: -.4rem;
-        font-size: 1.5rem;
+        top:  map.get($theme, "text-top-position-y");
+        font-size:  map.get($theme, "text-top-font-size");
         color: map.get($theme, "label-placeholder-color");
-        opacity: 1;
+        opacity: map.get($theme, "text-top-opacity");
     }
 }
 
@@ -106,6 +121,7 @@
     opacity: map.get($theme, "opacity");
     cursor: map.get($theme, "cursor");
 }
+
 /** required */
 @mixin input-required($color : $component-color-danger) {
     color: $color;
@@ -126,6 +142,45 @@
         margin: $margin;
     }
 }
+
+/** Icons */
+
+@mixin input-icons($theme,$theme2) {
+    
+    &--leading { 
+        
+        position: absolute;
+        left: map.get($theme, "position-x");
+        top: map.get($theme, "position-y");
+        transform: map.get($theme, "transform");
+        width: map.get($theme, "width");
+        height: map.get($theme, "height");
+        z-index: 1;
+        font-size: map.get($theme, "font-size");
+        z-index: 1;
+  
+
+    }
+    &--trailing {
+        position: absolute;
+        right: map.get($theme2, "position-x");
+        top: map.get($theme2, "position-y");
+        transform: map.get($theme2, "transform");
+        width: map.get($theme2, "width");
+        height: map.get($theme2, "height");
+        z-index: 1;
+        font-size: map.get($theme2, "font-size");
+    }
+    &--pleft {
+        padding-left: map.get($theme, "padding-left");
+    }
+
+    &--pright {
+        padding-right: map.get($theme2, "padding-right");
+    }
+
+}
+
 /** Checkbox */
 @mixin checkbox($theme) {
     

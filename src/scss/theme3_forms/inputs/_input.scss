@@ -14,8 +14,16 @@
               @include input-style($theme-input-box-default);
        }
 
+       &__style{
+              @include input-icons($theme-input-box-icon-leading ,$theme-input-box-icon-trailing);
+       }
+
        &__style--filled{
               @include input-style-filled($theme-input-filled);
+       }
+
+       &__icon{
+              @include input-icons($theme-input-icon-leading,$theme-input-icon-trailing);
        }
 
        &__number--style{

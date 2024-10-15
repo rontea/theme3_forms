@@ -14,6 +14,18 @@
     {{/if}}
 {{/if}}
 
+{{#if input-filled}}
+    {{#if icon-leading}}
+    {{#if icon-mark-leading}} {{{icon-mark-leading}}} {{else}} <i class="bi bi-input-cursor-text input__icon--leading"></i> {{/if}}
+    {{/if }}
+{{/if }}
+
+{{#if input-icon}}
+    {{#if icon-leading}}
+    {{#if icon-mark-leading}} {{{icon-mark-leading}}} {{else}} <i class="bi bi-person-circle input__style--leading"></i> {{/if}}
+    {{/if }}
+{{/if}}
+
 <input type="text" 
 {{#if id}}
     {{#if data}} 
@@ -23,9 +35,17 @@
         {{else}}
         id="{{#if id}}{{id}}{{else}}id-default{{/if}}"
         name="{{#if name}}{{name}}{{else}}{{#if id}}{{id}}{{else}}name-default{{/if}}{{/if}}"
-        class="{{#if input-class}}{{input-class}}{{else}}
-            {{#if input-filled}}input__style--filled 
-            {{else}}input--style input--focus input--placeholder{{/if}} {{#if input-class-add}} {{input-class-add}}{{/if}} {{#if disabled}} input--disabled{{/if}}{{/if}}"
+        class="{{#if input-class}}{{input-class}}
+            {{else}}
+                {{#if input-filled}}input__style--filled {{#if input-filled-outline}} input__style--filled--outlined{{/if}}
+                {{#if icon-leading}}input__icon--pleft{{/if}}
+                {{#if icon-trailing}}input__icon--pright{{/if}}
+                {{else}}input--style input--focus input--placeholder
+                {{/if}} 
+                {{#if input-class-add}} {{input-class-add}}{{/if}} 
+                {{#if disabled}} input--disabled{{/if}}
+                {{#if input-icon}}{{#if icon-leading}} input__style--pleft{{/if}}{{#if icon-trailing}} input__style--pright{{/if}}  {{/if}}
+            {{/if}}"
         {{#if input-attrs}} {{{ input-attrs}}} {{/if}}
         arial-invalid="false"
     {{/if}}
@@ -64,15 +84,28 @@ aria-labelledby="{{id}}"
 disabled 
 {{/if}}/>
 
+{{#if input-icon}}
+    {{#if icon-trailing}}
+    {{#if icon-mark-trailing}} {{{icon-mark-trailing}}} {{else}} <i class="bi bi-chat-left-text input__style--trailing"></i> {{/if}}
+    {{/if}}
+{{/if}}
+
 {{#if input-filled}}
  <!-- Label filled -->
     {{#if label}}
     <label 
         for="{{id}}" 
-        class="{{#if class-label}}class="{{class-label}} {{else}}label__filled--style {{/if}}">
+        class="{{#if class-label}}{{class-label}} {{else}}label__filled--style {{/if}} 
+        {{#if icon-leading}} input__icon--pleft{{/if}}">
 
         {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}{{#if required}}<span class="{{#if class-required}}{{else}}input--required{{/if}}"> *</span>{{/if}}
     </label>
+    {{/if}}
+{{/if}}
+
+{{#if input-filled}}
+    {{#if icon-trailing}}
+    {{#if icon-mark-trailing}} {{{icon-mark-trailing}}} {{else}} <i class="bi bi-chat-left-text input__icon--trailing"></i> {{/if}}
     {{/if}}
 {{/if}}
 
@@ -80,7 +113,7 @@ disabled
 <span 
     class="{{#if class-helper}}{{else}}input--helper{{/if}}"
     id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-help{{/if}}">
-    {{#if helper-message}} {{helper-message}} {{else}} No helper-message define {{/if}}
+    {{#if helper-message}} {{helper-message}} {{else}} No {{id}}-helper-message define {{/if}}
 </span>
 {{/if}}
 
@@ -90,8 +123,6 @@ disabled
     {{#if error-value}}{{error-value}}{{else}}Error on {{id}}{{/if}}
 </span>
 {{/if}}
-
-
 
 {{#if input-filled}}
  </div>
