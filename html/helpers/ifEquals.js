@@ -1,26 +1,13 @@
-"use strict";
+'use strict';
 
 /**
- * Return the attributes of an input based on the id and inputs.
- * @function
- * @param {string} id - id of the input.
- * @param {object} inputs - inputs object from the json file.
- * @returns {string} attributes of the input.
+ * Check if two values are equal and execute a function based on the result.
+ * @param {string|number|boolean} a - The value to compare
+ * @param {string|number|boolean} b - The value to compare with
+ * @param {Object} options - Handlebars options object
  */
-module.exports = function (id, inputs) {
-  let results = "";
-
-  for (let key in inputs) {
-    if (key === "inputs" && Array.isArray(inputs[key])) {
-      inputs[key].forEach((input, index) => {
-        // Display each key-value pair for the input item
-        if (input.id === id) {
-          for (let inputKey in input) {
-            results += ` ${inputKey}="${input[inputKey]}" `;
-          }
-        }
-      });
-    }
-  }
-  return results;
+module.exports = function(a, b, options) {
+  if (a === b) {
+    return options.fn(this);
+  } 
 };

@@ -1,0 +1,6 @@
+{{#if error}}
+<span  class="{{#if class-error}}{{else}}input--error{{/if}} 
+    id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-error{{/if}}">
+    {{#if error-value}}{{error-value}}{{else}}Error on {{id}}{{/if}}
+</span>
+{{/if}}

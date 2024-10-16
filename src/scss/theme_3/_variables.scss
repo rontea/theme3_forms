@@ -117,9 +117,7 @@ $input-helper-color: $component-color-warning;
 $input-helper-font-weight: 400;
 $input-helper-margin: 2px;
 
-
-
-
+/** Input sizes */
 $input-sizes: (
   small: (padding: calc(2px + 0.5rem) 1rem, font-size: $font-small),
   medium: (padding: calc(2px + 0.5rem) 1rem, font-size: $font-medium),

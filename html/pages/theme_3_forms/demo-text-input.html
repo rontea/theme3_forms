@@ -2,7 +2,9 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
+        pattern-required=true
         id="username"
         label=true
         label-title="Username"
@@ -11,15 +13,53 @@
         autofocus=true
         autocomplete="username"
         placeholder="Enter Username"'
+        default-pattern=true
         required=true
         error=true }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
+        id="name"
+        name="name" 
+        input-attrs='
+        autofocus=true
+        autocomplete="name"
+        placeholder="Enter Name"'
+        default-pattern=true
+        required=true
+        off-auto-helper=true
+         }}
 
 </div>
 
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
+        id="name"
+        name="name" 
+        input-attrs='
+        autofocus=true
+        autocomplete="name"
+        placeholder="Enter Name"'
+        default-pattern=true
+        required=true
+        icon-side-leading=true
+        
+         }}
+
+</div>
+
+
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
         id="disabled"
         label=true
         label-title="Disable Input"
@@ -37,7 +77,8 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
         input-filled=true
         id="input-filled"
         label=true
@@ -56,7 +97,8 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
         input-filled=true
         input-filled-outline=true
         id="input-filled-bordered"
@@ -76,7 +118,8 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
         input-filled=true
         id="disabled-input-filled"
         label=true
@@ -96,7 +139,8 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
         input-filled=true
         icon-leading=true
         icon-mark-leading='<i class="bi bi-input-cursor-text input__icon--leading"></i>'
@@ -118,7 +162,8 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
         input-filled=true
         icon-trailing=true
         id="input-filled-with-icon2"
@@ -138,7 +183,8 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
         input-filled=true
         icon-leading=true
         icon-trailing=true
@@ -159,7 +205,8 @@
 
 <div class="demo-page">
 
-    {{> text-input
+    {{> input
+        input-type="text"
         input-icon=true
         icon-leading=true
         icon-trailing=true

@@ -7,10 +7,14 @@
     {{#if label}}
     <label 
         for="{{id}}" 
-        class="{{#if class-label}}{{class-label}} {{else}} {{/if}}">
+        class="{{#if class-label}}{{class-label}} {{else}} label label--block {{#if required}} label--required{{/if}} {{/if}}">
 
         {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}
     </label>
+    {{/if}}
+
+    {{#if icon-side-leading }}
+
     {{/if}}
 {{/if}}
 
@@ -26,22 +30,22 @@
     {{/if }}
 {{/if}}
 
-<input type="text" 
+<input type="{{> comp-input-type}}" 
 {{#if id}}
     {{#if data}} 
-        {{#ifEquals id inputs}} 
+        {{#ifLists id inputs}} 
 
-        {{/ifEquals}} 
+        {{/ifLists}} 
         {{else}}
-        id="{{> comp-input-id }}"
+        id="{{> comp-input-id}}"
         name="{{> comp-input-name }}"
         class="{{> comp-input-class }}"
-        {{#if input-attrs}} {{{ input-attrs}}} {{/if}}
+        {{> comp-input-attrs}}
         arial-invalid="false"
     {{/if}}
 {{/if}}
 
-{{> comp-pattern}}
+{{> comp-pattern }}
 
 {{#if title}}
 title="{{title}}" 
@@ -66,6 +70,13 @@ aria-labelledby="{{id}}"
 {{#if disabled}} 
 disabled 
 {{/if}}/>
+
+{{#if label}} 
+{{else}} 
+    {{#if required}} 
+    {{> comp-helper}} 
+    {{/if}} 
+{{/if}}
 
 {{#if input-icon}}
     {{#if icon-trailing}}
@@ -93,18 +104,11 @@ disabled
 {{/if}}
 
 {{#if helper}}
-<span 
-    class="{{#if class-helper}}{{else}}input--helper{{/if}}"
-    id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-help{{/if}}">
-    {{#if helper-message}} {{helper-message}} {{else}} No {{id}}-helper-message define {{/if}}
-</span>
+    {{> comp-helper}}
 {{/if}}
 
 {{#if error}}
-<span  class="{{#if class-error}}{{else}}input--error{{/if}} 
-    id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-error{{/if}}">
-    {{#if error-value}}{{error-value}}{{else}}Error on {{id}}{{/if}}
-</span>
+    {{> comp-error}}
 {{/if}}
 
 {{#if input-filled}}
