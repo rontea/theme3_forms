@@ -6,6 +6,27 @@
  */
 @use "sass:map";
 
+/** Icon side */
+.icon-side {
+
+       &--wrapper {
+              display: flex;
+              flex-wrap: wrap;
+             
+
+              @include input-icons-side($theme-input-icon-side);
+
+              .input {
+
+                     &--helper{
+                            flex: 1 1 100%;
+                     }
+              }
+              
+       }
+}
+
+/** Input */
 .input {
 
        font-size: $font-medium;
@@ -41,14 +62,6 @@
               @include checkbox($theme-input-checkbox);
 
        }
-      
-       @each $size, $values in $input-sizes {
-       
-              &--#{$size} {
-                @include input-size($size, $values);
-              }
-
-       }
 
        &--focus  {
               @include input-focus();
@@ -67,14 +80,46 @@
        }
 
        &--helper {
-              @include helper-message();
+              @include helper-message(map.get($theme-input-helper, "font-size"),
+              map.get($theme-input-helper, "color"),
+              map.get($theme-input-helper, "margin"));
        }
 
+       &__counter{
 
-       @include error-message();
+              display: flex;
+              flex-direction: column;
 
-    
+              .span {
+              
+                     &__group {
+                            display: flex;
+                            justify-content: space-between;
+                            width: 100%; 
+                     }
+              }
+
+              &--error {
+                     color: $input-error-color;
+              }
        
+           
+       }
+
+       &--error {
+              @include error-message(map.get($theme-input-error, "font-size"),
+              map.get($theme-input-error, "color"),
+              map.get($theme-input-error, "margin"));
+       }
+
+       @each $size, $values in $input-sizes {
+       
+              &--#{$size} {
+                @include input-size($size, $values);
+              }
+
+       }
+      
 }
 
 .switch-checkbox{

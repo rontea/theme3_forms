@@ -1,4 +1,9 @@
 
+{{#if icon-side-leading }}
+<div class="{{#if wrapper-class}}{{wrapper-class}}{{else}}icon-side--wrapper{{/if}}">
+{{/if}}
+
+
 {{#if input-filled}}
 <div class="input__filled--wrapper"> 
 
@@ -14,20 +19,17 @@
     {{/if}}
 
     {{#if icon-side-leading }}
-
+        {{> comp-input-icons}}
     {{/if}}
+
 {{/if}}
 
 {{#if input-filled}}
-    {{#if icon-leading}}
-    {{#if icon-mark-leading}} {{{icon-mark-leading}}} {{else}} <i class="bi bi-input-cursor-text input__icon--leading"></i> {{/if}}
-    {{/if }}
+    {{> comp-input-icons}}
 {{/if }}
 
 {{#if input-icon}}
-    {{#if icon-leading}}
-    {{#if icon-mark-leading}} {{{icon-mark-leading}}} {{else}} <i class="bi bi-person-circle input__style--leading"></i> {{/if}}
-    {{/if }}
+    {{> comp-input-icons}}
 {{/if}}
 
 <input type="{{> comp-input-type}}" 
@@ -41,7 +43,9 @@
         name="{{> comp-input-name }}"
         class="{{> comp-input-class }}"
         {{> comp-input-attrs}}
+        
         arial-invalid="false"
+        
     {{/if}}
 {{/if}}
 
@@ -60,28 +64,36 @@ required
 readonly
 {{/if}}
 
-aria-describedby="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-help{{/if}}"
+{{> comp-input-vue}}
+ref="inputElement"
+{{> comp-input-min-max}}
+
+aria-describedby="{{> comp-input-aria-describedby}}"
 
 {{#if label}}
 {{else}}
-aria-labelledby="{{id}}"
+    aria-labelledby="{{id}}"
 {{/if}}
 
 {{#if disabled}} 
 disabled 
-{{/if}}/>
+{{/if}}/> <!-- end input -->
 
 {{#if label}} 
-{{else}} 
-    {{#if required}} 
-    {{> comp-helper}} 
-    {{/if}} 
+{{else}}
+    {{#if helper-text-counter}} 
+    {{else}}
+        {{#if helper}}
+        {{else}}
+            {{#if required}} 
+                {{> comp-helper}} 
+            {{/if}} 
+        {{/if}}
+    {{/if}}
 {{/if}}
 
 {{#if input-icon}}
-    {{#if icon-trailing}}
-    {{#if icon-mark-trailing}} {{{icon-mark-trailing}}} {{else}} <i class="bi bi-chat-left-text input__style--trailing"></i> {{/if}}
-    {{/if}}
+    {{> comp-input-icons}}
 {{/if}}
 
 {{#if input-filled}}
@@ -98,9 +110,7 @@ disabled
 {{/if}}
 
 {{#if input-filled}}
-    {{#if icon-trailing}}
-    {{#if icon-mark-trailing}} {{{icon-mark-trailing}}} {{else}} <i class="bi bi-chat-left-text input__icon--trailing"></i> {{/if}}
-    {{/if}}
+    {{> comp-input-icons}}
 {{/if}}
 
 {{#if helper}}
@@ -113,4 +123,14 @@ disabled
 
 {{#if input-filled}}
  </div>
+{{/if}}
+
+{{#if icon-side-leading }}
+</div>
+{{/if}}
+
+{{#if helper-text-counter}}
+    <div class="span__group">
+        {{> comp-helper}}
+    </div>
 {{/if}}

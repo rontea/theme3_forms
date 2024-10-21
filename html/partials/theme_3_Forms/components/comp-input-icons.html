@@ -3,6 +3,53 @@
     {{#if icon-mark-leading}} 
         {{{icon-mark-leading}}} 
     {{else}} 
-        <i class="bi bi-input-cursor-text"></i> 
+        <i class="bi bi-heart-fill icon--leading"></i> 
+    {{/if}}
+
+ 
+{{/if}}
+
+{{#if icon-side-trailing }}
+    {{#if icon-mark-trailing}} 
+        {{{icon-mark-trailing}}} 
+    {{else}} 
+        <i class="bi bi-heart-fill"></i> 
     {{/if}}
 {{/if}}
+
+{{#if input-icon}}
+    {{#if icon-leading}}
+        {{#if icon-mark-leading}} 
+            {{{icon-mark-leading}}} 
+        {{else}} 
+            <i class="bi bi-person-circle input__style--leading"></i> 
+        {{/if}}
+    {{/if }}
+
+    {{#if icon-trailing}}
+        {{#if icon-mark-trailing}} 
+            {{{icon-mark-trailing}}} 
+        {{else}} 
+            <i class="bi bi-heart-fill input__style--trailing"></i> 
+        {{/if}}
+    {{/if}}
+{{/if}}
+
+
+{{#if input-filled}}
+    {{#if icon-leading}}
+        {{#if icon-mark-leading}} 
+            {{{icon-mark-leading}}} 
+        {{else}} 
+            <i class="bi bi-heart-fill input__icon--leading"></i> 
+        {{/if}}
+    {{/if }}
+
+    {{#if icon-trailing}}
+        {{#if icon-mark-trailing}} 
+            {{{icon-mark-trailing}}} 
+        {{else}} 
+            <i class="bi bi-chat-left-text input__icon--trailing"></i> 
+        {{/if}}
+    {{/if}}
+{{/if }}

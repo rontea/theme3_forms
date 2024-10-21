@@ -22,8 +22,12 @@
   <body>
    
       {{> body}}
- 
+    {{#ifpage 'index'}}
     <script src="/js/vue.global.prod.js"></script>
     <script src="/js/app.js"></script>
-    
+    {{/ifpage}}
+    {{#ifpage 'visual' 'demo-text-input'}}
+      <script src="../js/vue.global.prod.js"></script>
+      <script src="../js/app.js"></script>
+    {{/ifpage}}
 </html>

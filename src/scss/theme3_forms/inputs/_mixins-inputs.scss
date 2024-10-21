@@ -6,20 +6,26 @@
  */
 
 /** input style */
-@mixin input-style($theme ,$width: $input-width) {
+@mixin input-style($theme : $theme-input-box-default ,
+    $width: $input-width,
+    $border-color: $input-border-color) {
 
+    font-size: map.get($theme , "font-size");
+    $color: map.get($theme , "color");
+    width: $width;
     height: map.get($theme, "height");
     border: map.get($theme, "border");
+    border-color: $border-color;
     border-radius: map.get($theme, "border-radius");
     box-sizing: border-box;
-    font-size: map.get($theme , "font-size");
     outline: map.get($theme, "outline");
     padding: map.get($theme, "padding");
-    width: $width;
     
 }
 
-@mixin input-style-filled($theme,$theme-back-shadow: $theme-box-shadow-input-filled-default, $class-label : "label__filled--style") {
+@mixin input-style-filled($theme : $theme-input-filled ,
+    $theme-back-shadow: $theme-box-shadow-input-filled-default, 
+    $class-label : "label__filled--style") {
     
    
     position: relative;
@@ -128,22 +134,52 @@
 }
 
 /** helper message */
-@mixin helper-message($font-size: $input-helper-font-size, $color: $input-helper-color, $margin: $input-helper-margin) {
+@mixin helper-message($font-size: $input-helper-font-size, 
+    $color: $input-helper-color, 
+    $margin: $input-helper-margin) {
+
     font-size: $font-size;
     color: $color;
     margin: $margin;
 }
 
 /** Error Message */
-@mixin error-message($font-size: 90%, $color: $input-error-color, $margin: 3px) {
-    &--error {
+@mixin error-message($font-size: 90%, 
+    $color: $input-error-color, 
+    $margin: 3px) {
+    
         font-size: $font-size;
         color: $input-error-color;
         margin: $margin;
-    }
+    
 }
 
 /** Icons */
+
+@mixin input-icons-side($theme) {
+    
+    & .icon { 
+        
+        &--leading {
+            height: map.get($theme, "height");
+            width: map.get($theme, "width");
+            font-size: map.get($theme, "font-size");
+            padding: map.get($theme, "padding");
+            flex: 0 1 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__flex {
+            &--leading {
+                flex: 1 1 0;
+            }
+        }
+
+ 
+    }
+}
 
 @mixin input-icons($theme,$theme2) {
     
@@ -334,11 +370,12 @@
 
 */
 
-@mixin label-style($color: var(--label-color)) {
+@mixin label-style($theme : $theme-label-default) {
 
-    color: $color;
-    font-size: var(--label-font-size);
-    font-weight: var(--label-font-weight);
+    color: map.get($theme, "color");
+    font-weight: map.get($theme, "font-weight");
+    font-size: map.get($theme, "font-size");
+  
  
  }
 

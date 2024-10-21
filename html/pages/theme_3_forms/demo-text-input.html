@@ -32,7 +32,7 @@
         default-pattern=true
         required=true
         off-auto-helper=true
-         }}
+    }}
 
 </div>
 
@@ -41,17 +41,17 @@
 
     {{> input
         input-type="text"
-        id="name"
-        name="name" 
+        id="text_icon"
+        name="text_icon" 
         input-attrs='
         autofocus=true
-        autocomplete="name"
-        placeholder="Enter Name"'
+        autocomplete="text_icon"
+        placeholder="Text with icon"'
         default-pattern=true
         required=true
         icon-side-leading=true
-        
-         }}
+        helper=true
+    }}
 
 </div>
 
@@ -143,7 +143,7 @@
         input-type="text"
         input-filled=true
         icon-leading=true
-        icon-mark-leading='<i class="bi bi-input-cursor-text input__icon--leading"></i>'
+        icon-mark-leading='<i class="bi bi-heart-fill input__icon--leading"></i>'
        
         id="input-filled-with-icon"
         label=true
@@ -210,16 +210,42 @@
         input-icon=true
         icon-leading=true
         icon-trailing=true
-        icon-mark-trailing='<i class="bi bi-person-check input__style--trailing"></i>'
-        id="first_name"
+        icon-mark-trailing='<i class="bi bi-heart-fill input__style--trailing"></i>'
+        id="input_icon_demo"
         label=true
-        label-title="First Name"
+        label-title="Input Icon Demo"
         class-label="label label--block label--required"
         input-attrs='
         autofocus=true
         autocomplete="first name"
-        placeholder="Enter First Name"'
+        placeholder="Input Icon Demo leading and trailing"'
         required=true
-        error=true }}
+        error=true
+        error-value="Error on input icon"
+    }}
+
+</div>
+
+
+<div class="demo-page input__counter" id="text-counter">
+
+    {{> input
+        input-type="text"
+        id="text_counter"
+        name="text_counter" 
+        input-attrs='
+            autofocus=true
+            autocomplete="text_icon"
+            placeholder="Text counter demo"
+        '
+        v-model="userInput"
+        ref="inputElement"
+        default-pattern=true
+        required=true
+        icon-side-leading=true
+        helper-text-counter=true
+        minlength="3"
+        maxlength="100"
+    }}
 
 </div>

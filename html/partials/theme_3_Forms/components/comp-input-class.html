@@ -7,10 +7,12 @@
         {{else}}
             input--style input--focus input--placeholder
         {{/if}} 
-            {{#if input-class-add}} {{input-class-add}}{{/if}} 
-            {{#if disabled}} input--disabled{{/if}}
-            {{#if input-icon}}
-                {{#if icon-leading}} input__style--pleft{{/if}}
-                {{#if icon-trailing}} input__style--pright{{/if}}  
-            {{/if}}
+
+        {{#if input-icon}}
+            {{#if icon-leading}} input__style--pleft{{/if}}
+            {{#if icon-trailing}} input__style--pright{{/if}}  
+        {{/if}}
+        {{#if icon-side-leading}} icon__flex--leading{{/if}}
+        {{#if disabled}} input--disabled{{/if}}
+        {{#if input-class-add}} {{input-class-add}}{{/if}}
 {{/if}}

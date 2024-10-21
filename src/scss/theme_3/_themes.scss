@@ -63,11 +63,19 @@ $theme-box-shadow-input-filled-default : (
 $theme-input-box-default : (
   "height" : $input-box-height,
   "width" : $input-width,
+  "text-color" : $input-color,
   "font-size" : $font-medium,
   "outline" : none,
   "border-radius": $input-border-radius,
+  "border-color" : $input-border-color,
   "border" : $input-border,
   "padding" : $input-padding
+);
+
+$theme-label-default : (
+  "font-size" : $font-medium,
+  "color" : $label-color,
+  "font-weight" : $label-font-weight      
 );
 
 $theme-input-box-icon-leading : (  
@@ -135,6 +143,15 @@ $theme-input-icon-trailing : (
   "position-y": $font-large,
   "tansform": translateY(-50%),
   "padding-right" : 4.5rem
+);
+
+$theme-input-icon-side : (
+  "width": auto,
+  "height":  $input-box-height,
+  "font-size": $font-large,
+  "padding": 0 1.2rem 0 0,
+  "flex-icon": 0 1 auto,
+  "flex-input": 1 1 0,
 );
 
 
@@ -231,4 +248,16 @@ $theme-input-checkbox-slider : (
   "focus-shadow" : $chk-slider-focus-shadow,
   "hover-color": $chk-slider-hover-color,
   
+);
+
+$theme-input-error : (
+  "font-size" : 80%,
+  "color" : $component-color-danger,
+  "margin" : 3px
+);
+
+$theme-input-helper : (
+  "font-size" : 80%,
+  "color" : $component-color-secondary,
+  "margin" : 3px
 );
