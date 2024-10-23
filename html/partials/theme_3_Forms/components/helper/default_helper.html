@@ -1,0 +1,11 @@
+<span
+ref="helperRequired" 
+class="{{#if class-helper}}{{else}}input--helper{{/if}}"
+id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}{{/if}}">
+{{#if helper-message}} 
+    {{helper-message}} 
+{{else}} 
+    No helper message define for {{id}}  
+        {{#if required}}<span class="input--required">*</span>{{/if}} 
+{{/if}}
+</span>

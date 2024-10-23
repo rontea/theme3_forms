@@ -1,0 +1,30 @@
+{{#if input-filled}}
+
+{{else}}
+    {{#if label}}
+        <label 
+        for="{{id}}" 
+        class="{{#if class-label}}{{class-label}} 
+            {{else}} label label--block 
+                {{#if required}} 
+                    {{#if show-required-off}}
+                    {{else}}
+                        label--required
+                    {{/if}}
+                {{/if}} 
+            {{/if}}">
+
+        {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}
+        </label>
+    {{/if}}
+{{/if}}
+
+{{#if input-filled}}
+    <label 
+    for="{{id}}" 
+    class="{{#if class-label}}{{class-label}} {{else}}label__filled--style {{/if}} 
+    {{#if icon-leading}} input__icon--pleft{{/if}}">
+
+    {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}{{#if required}}<span class="{{#if class-required}}{{else}}input--required{{/if}}"> *</span>{{/if}}
+    </label>
+{{/if}}

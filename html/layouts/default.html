@@ -9,12 +9,16 @@
       <link rel="stylesheet" href="../css/styles.css" >
       <link rel="stylesheet" href="../css/bootstrap-icons.css" >
     {{/ifpage}}
+
     {{#ifpage 'index'}}
       <link rel="stylesheet" href="css/styles.css" >
       <link rel="stylesheet" href="css/bootstrap-icons.css" >
     {{/ifpage}}
-   
 
+    {{#ifpage 'input-text-normal' 'input-text-filled'}}
+    <link rel="stylesheet" href="../../css/styles.css" >
+    <link rel="stylesheet" href="../../css/bootstrap-icons.css" >
+    {{/ifpage}}
     
     <title> Theme3_forms </title>
     <link rel="icon" type="image/x-icon" href="img/fav.png">
@@ -29,5 +33,9 @@
     {{#ifpage 'visual' 'demo-text-input'}}
       <script src="../js/vue.global.prod.js"></script>
       <script src="../js/app.js"></script>
+    {{/ifpage}}
+    {{#ifpage 'input-text-normal' 'input-text-filled'}}
+    <script src="../../js/vue.global.prod.js"></script>
+    <script src="../../js/app.js"></script>
     {{/ifpage}}
 </html>

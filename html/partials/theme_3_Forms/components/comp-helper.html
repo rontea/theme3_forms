@@ -1,44 +1,28 @@
-{{#if helper}}
-<span 
-    class="{{#if class-helper}}{{else}}input--helper{{/if}}"
-    id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}-help{{/if}}">
-    {{#if helper-message}} 
-        {{helper-message}} 
-    {{else}} 
-        No {{id}}-helper-message define 
-            {{#if required}}<span class="input--required">*</span>{{/if}} 
-    {{/if}}
-</span>
-{{else}}
-    {{#if off-auto-helper}}    
+
+
+    {{#if helper}}
+        {{> default_helper}}
     {{else}}
-        {{#if label}}
+        {{#if off-auto-helper}}    
         {{else}}
-            {{#if helper}}
+            {{#if label}}
             {{else}}
-                {{#if required}} 
-                <span 
-                class="{{#if class-helper}}
-                        {{else}}
-                            {{#if helper-text-counter}}
-                                {{else}}input--helper
-                            {{/if}}
-                        {{/if}}
-                    {{#if helper-text-counter}} input--helper{{/if}}"
-                id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}{{/if}}"> 
-                Required
-                </span>
+                {{#if helper}}
+                {{else}}
+                    {{#if required}} 
+                        {{ required_helper}}
+                    {{/if}}
                 {{/if}}
             {{/if}}
         {{/if}}
+
     {{/if}}
 
-{{/if}}
 
-{{#if helper-text-counter}}
-                <span
-                
-                class="{{#if class-counter-helper}}{{else}} input--helper{{/if}}"
-                id="{{#if aria-describedby}}{{aria-describedby}}{{else}}{{id}}{{/if}}"> <span ref="helperElement">[[ charCount ]]</span>/{{#if maxlength}} {{maxlength}}{{/if}}</span>
-{{/if}}
+
+
+    {{#if helper-text-counter}}
+        {{> counter_helper}}
+    {{/if}}
+
 

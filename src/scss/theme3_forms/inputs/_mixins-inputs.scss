@@ -39,6 +39,10 @@
     padding: map.get($theme, "padding");
     border-bottom: map.get($theme, "input-filled-border-bottom");
 
+    &--bordered {
+        border: map.get($theme, "input-filled-border-bottom");
+    }
+
     &--outlined {
         border: map.get($theme, "outlined-border");
 
@@ -91,6 +95,7 @@
     color: map.get($theme, "label-input-color");
     opacity: .7;
     transition: map.get($theme, "transition");
+   
 
  }
 
@@ -156,7 +161,7 @@
 
 /** Icons */
 
-@mixin input-icons-side($theme) {
+@mixin input-icons-side($theme,$color-disabled: lighten($component-color-dark, 45%)) {
     
     & .icon { 
         
@@ -169,6 +174,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+                 
+            &--disabled {
+                color: $color-disabled;
+            }
         }
 
         &__flex {
@@ -181,7 +191,8 @@
     }
 }
 
-@mixin input-icons($theme,$theme2) {
+/** Icons */
+@mixin input-icons($theme,$theme2,$color-disabled: lighten($component-color-dark, 45%)) {
     
     &--leading { 
         
@@ -194,7 +205,10 @@
         z-index: 1;
         font-size: map.get($theme, "font-size");
         z-index: 1;
-  
+        
+        &--disabled {
+            color: $color-disabled;
+        }
 
     }
     &--trailing {
@@ -206,6 +220,11 @@
         height: map.get($theme2, "height");
         z-index: 1;
         font-size: map.get($theme2, "font-size");
+
+             
+        &--disabled {
+            color: $color-disabled;
+        }
     }
     &--pleft {
         padding-left: map.get($theme, "padding-left");

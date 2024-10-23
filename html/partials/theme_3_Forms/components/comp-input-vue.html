@@ -1,7 +1,17 @@
-{{#if v-model}}
-    v-model="{{v-model}}"
-{{/if}}
 
-{{#if ref}}
-    ref="{{ref}}"
+{{#if helper-text-counter}}
+           
+v-model="userInput"
+ref="inputElement"
+
+{{else}}
+
+    {{#if v-model}}
+        v-model="{{v-model}}"
+    {{/if}}
+
+    {{#if ref}}
+        ref="{{ref}}"
+    {{/if}}
+
 {{/if}}

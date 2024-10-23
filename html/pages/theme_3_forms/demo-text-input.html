@@ -1,23 +1,8 @@
+<ul> 
+    <li><a href="inputs-normal/input-text-normal.html">  Normal Text Input </a></li>
+</ul>
 
 
-<div class="demo-page">
-
-    {{> input
-        input-type="text"
-        pattern-required=true
-        id="username"
-        label=true
-        label-title="Username"
-        class-label="label label--block label--required"
-        input-attrs='
-        autofocus=true
-        autocomplete="username"
-        placeholder="Enter Username"'
-        default-pattern=true
-        required=true
-        error=true }}
-
-</div>
 
 <div class="demo-page">
 
@@ -160,48 +145,8 @@
 
 </div>
 
-<div class="demo-page">
 
-    {{> input
-        input-type="text"
-        input-filled=true
-        icon-trailing=true
-        id="input-filled-with-icon2"
-        label=true
-        label-title="Input Filled With Icon2"
-        input-attrs='
-        autofocus=true
-        autocomplete="input filled"
-        placeholder="Enter Input Filled"'
-        required=true
-        helper=true
-        
-      
-    }}
 
-</div>
-
-<div class="demo-page">
-
-    {{> input
-        input-type="text"
-        input-filled=true
-        icon-leading=true
-        icon-trailing=true
-        id="input-filled-with-icon3"
-        label=true
-        label-title="Input Filled With Icon3"
-        input-attrs='
-        autofocus=true
-        autocomplete="input filled"
-        placeholder="Enter Input Filled"'
-        required=true
-        helper=true
-        
-      
-    }}
-
-</div>
 
 <div class="demo-page">
 
@@ -220,32 +165,10 @@
         autocomplete="first name"
         placeholder="Input Icon Demo leading and trailing"'
         required=true
+        on-helper-first=true
         error=true
         error-value="Error on input icon"
     }}
 
 </div>
 
-
-<div class="demo-page input__counter" id="text-counter">
-
-    {{> input
-        input-type="text"
-        id="text_counter"
-        name="text_counter" 
-        input-attrs='
-            autofocus=true
-            autocomplete="text_icon"
-            placeholder="Text counter demo"
-        '
-        v-model="userInput"
-        ref="inputElement"
-        default-pattern=true
-        required=true
-        icon-side-leading=true
-        helper-text-counter=true
-        minlength="3"
-        maxlength="100"
-    }}
-
-</div>

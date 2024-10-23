@@ -10,12 +10,7 @@
 {{else}}
     <!-- Label Default -->
     {{#if label}}
-    <label 
-        for="{{id}}" 
-        class="{{#if class-label}}{{class-label}} {{else}} label label--block {{#if required}} label--required{{/if}} {{/if}}">
-
-        {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}
-    </label>
+        {{> comp-input-label}}
     {{/if}}
 
     {{#if icon-side-leading }}
@@ -38,18 +33,31 @@
         {{#ifLists id inputs}} 
 
         {{/ifLists}} 
-        {{else}}
+    {{else}}
         id="{{> comp-input-id}}"
         name="{{> comp-input-name }}"
         class="{{> comp-input-class }}"
         {{> comp-input-attrs}}
-        
+        {{#if value}}
+        value="{{value}}"
+        {{/if}}
         arial-invalid="false"
         
     {{/if}}
 {{/if}}
 
+
+{{> comp-input-placeholder}}
+  
 {{> comp-pattern }}
+
+{{#if autocomplete}}
+autocomplete="{{autocomplete}}"
+{{/if}}
+
+{{#if autofocus}}
+autofocus
+{{/if}}
 
 {{#if title}}
 title="{{title}}" 
@@ -65,7 +73,7 @@ readonly
 {{/if}}
 
 {{> comp-input-vue}}
-ref="inputElement"
+
 {{> comp-input-min-max}}
 
 aria-describedby="{{> comp-input-aria-describedby}}"
@@ -99,26 +107,23 @@ disabled
 {{#if input-filled}}
  <!-- Label filled -->
     {{#if label}}
-    <label 
-        for="{{id}}" 
-        class="{{#if class-label}}{{class-label}} {{else}}label__filled--style {{/if}} 
-        {{#if icon-leading}} input__icon--pleft{{/if}}">
-
-        {{#if label-title}}{{label-title}}{{else}}{{id}}{{/if}}{{#if required}}<span class="{{#if class-required}}{{else}}input--required{{/if}}"> *</span>{{/if}}
-    </label>
+        {{> comp-input-label}}
     {{/if}}
 {{/if}}
 
 {{#if input-filled}}
     {{> comp-input-icons}}
 {{/if}}
+{{#if on-helper-first}}
+    {{#if helper}}
+        {{> comp-helper}}
+    {{/if}}
 
-{{#if helper}}
-    {{> comp-helper}}
-{{/if}}
 
-{{#if error}}
-    {{> comp-error}}
+    {{#if error}}
+        {{> comp-error}}
+    {{/if}}
+
 {{/if}}
 
 {{#if input-filled}}

@@ -117,7 +117,7 @@ $theme-input-filled : (
   "label-font-size" : $font-medium,
   "transition" : all 0.2s ease,
   "outlined-border": solid 1px $input-border-color,
-  "outlined-label-background-color" : $component-color-light,
+  "outlined-label-background-color" : transparent,
   "outlined-padding" : 2px,
   "text-top-font-size" : 1rem,
   "text-top-position-y" : 1rem,

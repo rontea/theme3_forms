@@ -1,0 +1,87 @@
+
+<p> Default </p>
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
+        id="id-demo-1"
+        label=true
+        required=true
+        autofocus=true
+        }}
+
+</div>
+
+<p> Default No Label </p>
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
+        id="id-demo-1"
+        }}
+
+</div>
+
+<p> Default Label Required with show required off and  with Helper </p>
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
+        id="demo-id"
+        label=true
+        label-title="Demo Label Title"
+        input-attrs='
+            autocomplete="demo-id"
+            placeholder="demo placeholder using input-attrs"
+        '
+        default-pattern=true
+        required=true
+        show-required-off=true
+        on-helper-first=true
+        helper=true
+        
+    }}
+
+</div>
+
+<p> Default Label Required with show required off and  with Helper / disabled </p>
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
+        id="demo-id"
+        label=true
+        label-title="Demo Label Title"
+        input-attrs='
+            autocomplete="demo-id"
+            placeholder="demo placeholder using input-attrs"
+        '
+        default-pattern=true
+        required=true
+        show-required-off=true
+        on-helper-first=true
+        helper=true
+        disabled=true
+        
+    }}
+
+</div>
+
+<p> Default with input counter and with label </p>
+<div class="demo-page input__counter text-counter" id="text-counter-1">
+
+    {{> input
+        input-type="text"
+        id="demo-id-counter"
+        label=true
+        label-title="Demo Label Title"
+        default-pattern=true
+        required=true
+        helper=true
+        helper-message="Accept minimum 10 characters upto 90"
+        helper-text-counter=true
+        minlength="10"
+        maxlength="90"
+    }}
+
+</div>
