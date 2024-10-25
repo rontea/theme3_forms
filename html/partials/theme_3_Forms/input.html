@@ -1,7 +1,5 @@
 
-{{#if icon-side }}
-<div class="{{#if wrapper-class}}{{wrapper-class}}{{else}}icon-side--wrapper{{/if}}">
-{{/if}}
+
 
 
 {{#if input-filled}}
@@ -12,11 +10,11 @@
     {{#if label}}
         {{> comp-input-label}}
     {{/if}}
+{{/if}}
 
-    {{#if icon-side }}
-        {{> comp-input-icons}}
-    {{/if}}
-
+{{#if icon-side }}
+    <div class="{{#if wrapper-class}}{{wrapper-class}}{{else}}icon-side--wrapper{{/if}}">
+    {{> comp-input-icons}}
 {{/if}}
 
 {{#if input-filled}}
