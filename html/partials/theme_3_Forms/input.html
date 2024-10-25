@@ -1,5 +1,5 @@
 
-{{#if icon-side-leading }}
+{{#if icon-side }}
 <div class="{{#if wrapper-class}}{{wrapper-class}}{{else}}icon-side--wrapper{{/if}}">
 {{/if}}
 
@@ -13,7 +13,7 @@
         {{> comp-input-label}}
     {{/if}}
 
-    {{#if icon-side-leading }}
+    {{#if icon-side }}
         {{> comp-input-icons}}
     {{/if}}
 
@@ -23,8 +23,12 @@
     {{> comp-input-icons}}
 {{/if }}
 
+<!-- Input Icon Inside -->
 {{#if input-icon}}
-    {{> comp-input-icons}}
+<div class="input__style--wrapper">
+   
+        {{> comp-input-icons}}
+    
 {{/if}}
 
 <input type="{{> comp-input-type}}" 
@@ -45,7 +49,6 @@
         
     {{/if}}
 {{/if}}
-
 
 {{> comp-input-placeholder}}
   
@@ -87,6 +90,11 @@ aria-describedby="{{> comp-input-aria-describedby}}"
 disabled 
 {{/if}}/> <!-- end input -->
 
+{{#if input-icon}}
+ 
+</div>
+{{/if}}
+
 {{#if label}} 
 {{else}}
     {{#if helper-text-counter}} 
@@ -100,9 +108,7 @@ disabled
     {{/if}}
 {{/if}}
 
-{{#if input-icon}}
-    {{> comp-input-icons}}
-{{/if}}
+
 
 {{#if input-filled}}
  <!-- Label filled -->
@@ -130,7 +136,7 @@ disabled
  </div>
 {{/if}}
 
-{{#if icon-side-leading }}
+{{#if icon-side }}
 </div>
 {{/if}}
 

@@ -1,0 +1,53 @@
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
+        input-icon=true
+        icon-leading=true
+        icon-trailing=true
+        id="input_icon_demo"
+        label=true
+        label-title="Input Icon Demo"
+        class-label="label label--block label--required"
+        autofocus=true
+        required=true
+    }}
+
+</div>
+
+<div class="demo-page">
+
+    {{> input
+        input-type="text"
+        input-icon=true
+        icon-leading=true
+        icon-trailing=true
+        id="input_icon_demo_2"
+        label=true
+        label-title="Input Icon Demo"
+   
+        required=true
+        disabled=true
+    }}
+
+</div>
+
+<div class="demo-page text-counter input__counter" id="text-counter-1">
+
+    {{> input
+        input-type="text"
+        input-icon=true
+        icon-leading=true
+        icon-trailing=true
+        id="input_icon_demo_3"
+        label=true
+        label-title="Input Icon Demo"
+        required=true
+        helper=true
+        helper-message="Accept minimum 10 characters upto 90"
+        helper-text-counter=true
+        minlength="10"
+        maxlength="90"
+    }}
+
+</div>

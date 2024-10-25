@@ -11,18 +11,12 @@
 
        &--wrapper {
               display: flex;
-              flex-wrap: wrap;
-             
+              align-items: center;
+              width: 100%;
+              position: relative;
 
               @include input-icons-side($theme-input-icon-side);
-
-              .input {
-
-                     &--helper{
-                            flex: 1 1 100%;
-                     }
-              }
-              
+      
        }
 }
 
@@ -33,6 +27,10 @@
 
        &--style{
               @include input-style($theme-input-box-default);
+       }
+
+       &__style--wrapper{ 
+             display: relative;
        }
 
        &__style{

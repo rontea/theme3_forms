@@ -1,28 +1,39 @@
 
-{{#if icon-side-leading }}
+{{#if icon-side }}
     {{#if icon-mark-leading}} 
         {{{icon-mark-leading}}} 
     {{else}} 
-        <i class="bi bi-heart-fill icon--leading"></i> 
+
+        {{#if icon-side-leading}}
+            <i class="bi bi-heart-fill icon__style
+                {{#if icon-side-leading}} icon__style--leading{{/if}} 
+                
+                ">
+            </i>
+        {{/if}}
+
+        {{#if icon-side-trailing}}
+                <i class="bi bi-yin-yang icon__style
+                
+                {{#if icon-side-trailing}} icon__style--trailing{{/if}}
+                ">
+            </i>
+        {{/if}}
+
     {{/if}}
 
  
 {{/if}}
 
-{{#if icon-side-trailing }}
-    {{#if icon-mark-trailing}} 
-        {{{icon-mark-trailing}}} 
-    {{else}} 
-        <i class="bi bi-heart-fill {{#if disabled}} input__icon--leading--disabled{{/if}}"></i> 
-    {{/if}}
-{{/if}}
 
 {{#if input-icon}}
     {{#if icon-leading}}
         {{#if icon-mark-leading}} 
             {{{icon-mark-leading}}} 
         {{else}} 
-            <i class="bi bi-person-circle input__style--leading {{#if disabled}} input__icon--leading--disabled{{/if}}"></i> 
+            <i class="bi bi-heart-fill input__style--leading 
+                {{#if disabled}} input__icon--disabled{{/if}}">
+            </i> 
         {{/if}}
     {{/if }}
 
@@ -30,7 +41,9 @@
         {{#if icon-mark-trailing}} 
             {{{icon-mark-trailing}}} 
         {{else}} 
-            <i class="bi bi-heart-fill input__style--trailing {{#if disabled}} input__icon--leading--disabled{{/if}}"></i> 
+            <i class="bi bi-yin-yang input__style--trailing 
+                {{#if disabled}} input__icon--disabled{{/if}}">
+            </i> 
         {{/if}}
     {{/if}}
 {{/if}}
@@ -41,7 +54,9 @@
         {{#if icon-mark-leading}} 
             {{{icon-mark-leading}}} 
         {{else}} 
-            <i class="bi bi-heart-fill input__icon--leading {{#if disabled}} input__icon--leading--disabled{{/if}}"></i> 
+            <i class="bi bi-heart-fill input__icon--leading 
+                {{#if disabled}} input__icon--disabled{{/if}}">
+            </i> 
         {{/if}}
     {{/if }}
 
@@ -49,7 +64,9 @@
         {{#if icon-mark-trailing}} 
             {{{icon-mark-trailing}}} 
         {{else}} 
-            <i class="bi bi-chat-left-text input__icon--trailing {{#if disabled}} input__icon--leading--disabled{{/if}}"></i> 
+            <i class="bi bi-yin-yang input__icon--trailing 
+                {{#if disabled}} input__icon--disabled{{/if}}">
+            </i> 
         {{/if}}
     {{/if}}
 {{/if }}

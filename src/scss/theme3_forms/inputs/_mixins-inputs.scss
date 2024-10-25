@@ -22,7 +22,7 @@
     padding: map.get($theme, "padding");
     
 }
-
+/** Input style filled  */
 @mixin input-style-filled($theme : $theme-input-filled ,
     $theme-back-shadow: $theme-box-shadow-input-filled-default, 
     $class-label : "label__filled--style") {
@@ -70,9 +70,12 @@
 
         + label {
             top:  map.get($theme, "text-top-position-y");
+            left: map.get($theme, "text-top-position-x");
             font-size:  map.get($theme, "text-top-font-size");
             color: map.get($theme, "label-placeholder-color");
             opacity: map.get($theme, "text-top-opacity");
+            background-color: map.get($theme, "text-top-bg-color-data");
+            padding: map.get($theme, "text-top-padding");
         }
     }
 
@@ -82,6 +85,9 @@
         font-size:  map.get($theme, "text-top-font-size");
         color: map.get($theme, "label-placeholder-color");
         opacity: map.get($theme, "text-top-opacity");
+        background-color: map.get($theme, "text-top-bg-color-nodata");
+        padding: map.get($theme, "text-top-padding");
+        
     }
 }
 
@@ -161,16 +167,16 @@
 
 /** Icons */
 
-@mixin input-icons-side($theme,$color-disabled: lighten($component-color-dark, 45%)) {
+@mixin input-icons-side($theme,
+    $color-disabled: lighten($component-color-dark, 45%)) {
     
     & .icon { 
         
-        &--leading {
+        &__style {
             height: map.get($theme, "height");
             width: map.get($theme, "width");
             font-size: map.get($theme, "font-size");
-            padding: map.get($theme, "padding");
-            flex: 0 1 auto;
+            padding: map.get($theme, "padding-leading");
             display: flex;
             align-items: center;
             justify-content: center;
@@ -179,20 +185,24 @@
             &--disabled {
                 color: $color-disabled;
             }
-        }
 
-        &__flex {
             &--leading {
-                flex: 1 1 0;
+                order: 0;
             }
-        }
+            &--trailing {
+                order: 2;
+                padding: map.get($theme, "padding-trailing");
+            }
 
- 
+            
+        }
     }
 }
 
 /** Icons */
-@mixin input-icons($theme,$theme2,$color-disabled: lighten($component-color-dark, 45%)) {
+@mixin input-icons($theme,
+    $theme2,
+    $color-disabled: lighten($component-color-dark, 45%)) {
     
     &--leading { 
         
@@ -202,14 +212,9 @@
         transform: map.get($theme, "transform");
         width: map.get($theme, "width");
         height: map.get($theme, "height");
-        z-index: 1;
         font-size: map.get($theme, "font-size");
         z-index: 1;
         
-        &--disabled {
-            color: $color-disabled;
-        }
-
     }
     &--trailing {
         position: absolute;
@@ -221,10 +226,6 @@
         z-index: 1;
         font-size: map.get($theme2, "font-size");
 
-             
-        &--disabled {
-            color: $color-disabled;
-        }
     }
     &--pleft {
         padding-left: map.get($theme, "padding-left");
@@ -232,6 +233,14 @@
 
     &--pright {
         padding-right: map.get($theme2, "padding-right");
+    }
+
+    &--disabled {
+        color: $color-disabled;
+    }
+    
+    &--clickable {
+        cursor: pointer;
     }
 
 }

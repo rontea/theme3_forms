@@ -1,44 +1,14 @@
 <ul> 
     <li><a href="inputs-normal/input-text-normal.html">  Normal Text Input </a></li>
+    <li><a href="inputs-normal/input-text-filled.html">  Filled Text Input </a></li>
+    <li><a href="inputs-normal/input-text-insideicon.html">  Input With Icon Inside </a></li>
 </ul>
 
 
 
-<div class="demo-page">
-
-    {{> input
-        input-type="text"
-        id="name"
-        name="name" 
-        input-attrs='
-        autofocus=true
-        autocomplete="name"
-        placeholder="Enter Name"'
-        default-pattern=true
-        required=true
-        off-auto-helper=true
-    }}
-
-</div>
 
 
-<div class="demo-page">
 
-    {{> input
-        input-type="text"
-        id="text_icon"
-        name="text_icon" 
-        input-attrs='
-        autofocus=true
-        autocomplete="text_icon"
-        placeholder="Text with icon"'
-        default-pattern=true
-        required=true
-        icon-side-leading=true
-        helper=true
-    }}
-
-</div>
 
 
 <div class="demo-page">
@@ -148,27 +118,5 @@
 
 
 
-<div class="demo-page">
 
-    {{> input
-        input-type="text"
-        input-icon=true
-        icon-leading=true
-        icon-trailing=true
-        icon-mark-trailing='<i class="bi bi-heart-fill input__style--trailing"></i>'
-        id="input_icon_demo"
-        label=true
-        label-title="Input Icon Demo"
-        class-label="label label--block label--required"
-        input-attrs='
-        autofocus=true
-        autocomplete="first name"
-        placeholder="Input Icon Demo leading and trailing"'
-        required=true
-        on-helper-first=true
-        error=true
-        error-value="Error on input icon"
-    }}
-
-</div>
 

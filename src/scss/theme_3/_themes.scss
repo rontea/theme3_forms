@@ -119,10 +119,37 @@ $theme-input-filled : (
   "outlined-border": solid 1px $input-border-color,
   "outlined-label-background-color" : transparent,
   "outlined-padding" : 2px,
-  "text-top-font-size" : 1rem,
-  "text-top-position-y" : 1rem,
+  "text-top-font-size" : 1.3rem,
+  "text-top-position-y" : .4rem,
+  "text-top-position-x" : 3rem,
+  "text-top-padding" : 0px,
+  "text-top-bg-color-data" : $component-color-light,
+  "text-top-bg-color-nodata" : $component-color-light,
   "text-top-opacity": 1
+
 );
+
+$theme-input-box-icon-leading : (
+  "width": auto,
+  "height":  $input-filled-height,
+  "font-size": $font-xl,
+  "position-x": 2rem,
+  "position-y": 4rem,
+  "tansform": translateY(-45%),
+  "padding-left" : 4.5rem,
+  "padding-right" : 4.5rem
+);
+
+$theme-input-box-icon-trailing : (
+  "width": auto,
+  "height": $input-filled-height,
+  "font-size": $font-xl,
+  "position-x": 2rem,
+  "position-y": 4rem,
+  "tansform": translateY(-45%),
+  "padding-right" : 4.5rem
+);
+
 
 $theme-input-icon-leading : (
   "width": calc($input-filled-height / 2),
@@ -149,7 +176,8 @@ $theme-input-icon-side : (
   "width": auto,
   "height":  $input-box-height,
   "font-size": $font-large,
-  "padding": 0 1.2rem 0 0,
+  "padding-leading": 0 1.2rem 0 0,
+  "padding-trailing": 0 0 0 1.2rem,
   "flex-icon": 0 1 auto,
   "flex-input": 1 1 0,
 );
