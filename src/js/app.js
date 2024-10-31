@@ -1,7 +1,7 @@
 'use strict';
 
-// Import the necessary Vue functions
 const { createApp } = Vue;
+
 
 // Define the ExampleComponent
 const ExampleComponent = {
@@ -33,71 +33,132 @@ const data = createApp({
 // Mount the app to the #data element
 data.mount('#sample');
 
+/**
+ * Helper component for the message component.
+ * - message: A string representing the message to display. 
+ */
+const messageHelper = {
 
+  delimiters: ['[[', ']]'],
 
-
-document.querySelectorAll('.text-counter').forEach((element, index) => { 
-  const uniqueId = `#text-counter-${index + 1}`;
-  console.log(uniqueId);
-
-  
-const textCounter = createApp({
-
-    delimiters: ['[[', ']]'],
     data() {
       return {
       userInput: '',
       charCount: 0,
-      maxCount: 0
+      maxCount: 0,
+      message: 'Helper default message',
+      checks:[],
       };
     },
+  
     mounted() {
-      const inputElement = this.$refs.inputElement;
-      const value = inputElement.getAttribute('value');
-      const maxLength = inputElement.getAttribute('maxlength');
-      this.maxCount = maxLength;
-      this.userInput = value;
+
+      console.log('mounted');
+      if(this.$refs.inputElement) {
+        const inputElement = this.$refs.inputElement;
+        this.maxCount = inputElement.getAttribute('maxlength') || 0;
+
+        if(inputElement.getAttribute('check')) {
+          console.log('class');
+          const checkAttribute = inputElement.getAttribute('check');
+          this.checks = checkAttribute.replace(/[\[\]']+/g, '').split(',');
+          console.log(this.checks);
+        }
+
+        if(inputElement.getAttribute('value')){
+          this.userInput= inputElement.getAttribute('value');
+          this.charCount = this.userInput.length;
+        }
+       
+        
+      }else{
+        throw new Error('inputElement not found');
+      }
+
+      if(this.$refs.helperElement) {
+        const helper = this.$refs.helperElement;
+        this.message = helper.getAttribute('message') || 'missing message';
+        console.log("Message : " , this.message);
+      }else{
+        throw new Error('helperElement not found');
+      }
+     
+     
+
+      
+
+
+      
     },
     watch: {
-    userInput() {
-      this.countChecker();
-    }
+      /**
+      * Watcher function that triggers the countChecker method whenever
+      * the userInput data property changes.
+      */
+      userInput() {
+        
+        if(this.checks.includes('counter')){
+          this.countChecker();
+        }
+      
+              
+      }
     },
     methods: {
+      
       countChecker(){
 
-        const inputElement = this.$refs.inputElement;
-        const helperElement = this.$refs.helperElement;
-        const helperRequired = this.$refs.helperRequired;
+        console.log('check counter');
 
-        const minLength = inputElement.getAttribute('minlength');
-        const maxLength = inputElement.getAttribute('maxlength');
-        let value = this.userInput;
+        if(this.$refs.inputElement && this.$refs.helperElement) {
+          const inputElement = this.$refs.inputElement;
+          const helperElement = this.$refs.helperElement;
+
+
+
+          const minLength = inputElement.getAttribute('minlength') || 0;
+          let value = this.userInput;
+          this.charCount = value.length;
+
+          if (value.length < minLength) {
+            helperElement.classList.add('input__counter--error');
+             
+            console.log('input is too short');
+          }else {
+            helperElement.classList.remove('input__counter--error');
+          
+            console.log('valid input');
+          }
+          
+          if(this.checks.includes('watchcounter')){
+            if(this.$refs.helperCounter) {
+              const helperCounter = this.$refs.helperCounter;
+  
+              if(value.length === 0 || value.length < minLength) {
+                helperCounter.classList.add('input__counter--error');
+              }else {
+                helperCounter.classList.remove('input__counter--error');
+              }
+            }
+          }
       
-        this.charCount = value.length;
-        this.maxCount = maxLength;
-
-        if (value.length < minLength) {
-          helperElement.classList.add('input__counter--error');
-          console.log('input is too short');
+  
         }else {
-          helperElement.classList.remove('input__counter--error');
-        } 
-
-        if (value.length === minLength) {
-          helperElement.classList.remove('input__counter--error');
+          throw new Error('inputElement not found');
         }
 
-        if(value.length === 0 || value.length < minLength) {
-          helperRequired.classList.add('input__counter--error');
-        }else {
-          helperRequired.classList.remove('input__counter--error');
-        }
+
+       
+
 
       }
     }
-  });
+  };
 
-  textCounter.mount(uniqueId);
-  
+  /** Counter  */
+document.querySelectorAll('.helper-message').forEach(element => { 
+  const uniqueId = `#${element.id}`;
+  console.log(uniqueId);
+  createApp(messageHelper).mount(uniqueId);
+  console.log('======');
 });

@@ -1,28 +1,11 @@
-
-
+<div class="span__group">
     {{#if helper}}
         {{> default_helper}}
-    {{else}}
-        {{#if off-auto-helper}}    
-        {{else}}
-            {{#if label}}
-            {{else}}
-                {{#if helper}}
-                {{else}}
-                    {{#if required}} 
-                        {{ required_helper}}
-                    {{/if}}
-                {{/if}}
-            {{/if}}
-        {{/if}}
-
     {{/if}}
-
-
-
-
-    {{#if helper-text-counter}}
+    {{#if counter-on}}
         {{> counter_helper}}
     {{/if}}
+</div>
 
+    
 

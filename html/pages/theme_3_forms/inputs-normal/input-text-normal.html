@@ -23,7 +23,7 @@
 </div>
 
 <h3> Default Label Required with show required off and  with Helper </h3>
-<div class="demo-page">
+<div class="demo-page helper-message" id="usingAttrs">
 
     {{> input
         input-type="text"
@@ -37,7 +37,6 @@
         default-pattern=true
         required=true
         show-required-off=true
-        on-helper-first=true
         helper=true
         
     }}
@@ -45,7 +44,7 @@
 </div>
 
 <h3> Default Label Required with show required off and  with Helper / disabled </h3>
-<div class="demo-page">
+<div class="demo-page helper-message" id="demosample">
 
     {{> input
         input-type="text"
@@ -59,7 +58,6 @@
         default-pattern=true
         required=true
         show-required-off=true
-        on-helper-first=true
         helper=true
         disabled=true
         
@@ -68,7 +66,7 @@
 </div>
 
 <h3> Default with input counter and with label </h3>
-<div class="demo-page input__counter text-counter" id="text-counter-1">
+<div class="demo-page input__counter helper-message" id="helper-message-1">
 
     {{> input
         input-type="text"
@@ -77,9 +75,10 @@
         label-title="Demo Label Title"
         default-pattern=true
         required=true
+        check="[counter,watchcounter]"
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
+        counter-on=true
         minlength="10"
         maxlength="90"
     }}
@@ -88,7 +87,7 @@
 
 <h3> With Icons </h3>
 
-<div class="demo-page text-counter input__counter" id="text-counter-2">
+<div class="demo-page text-counter helper-message" id="text-counter-2">
 
     {{> input
         input-type="text"
@@ -103,14 +102,13 @@
         icon-side-leading=true
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
         minlength="10"
         maxlength="90"
     }}
 
 </div>
 
-<div class="demo-page text-counter input__counter" id="text-counter-3">
+<div class="demo-page text-counter helper-message" id="text-counter-3">
 
     {{> input
         input-type="text"
@@ -122,14 +120,13 @@
         icon-side-trailing=true
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
         minlength="10"
         maxlength="90"
     }}
 
 </div>
 
-<div class="demo-page text-counter input__counter" id="text-counter-4">
+<div class="demo-page text-counter helper-message" id="text-counter-4">
 
     {{> input
         input-type="text"
@@ -142,7 +139,6 @@
         icon-side-trailing=true
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
         minlength="10"
         maxlength="90"
         disabled=true

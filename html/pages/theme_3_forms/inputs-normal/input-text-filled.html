@@ -1,16 +1,18 @@
 
 <h3> Input Filled With leading and trailing Icon , outlined, with border focus </h3>
-<div class="demo-page input__counter text-counter" id="text-counter-1">
+<div class="demo-page input__counter helper-message" id="helper-message-1">
 
     {{> input
         input-type="text"
         input-filled=true
-        id="input-filled-with-icon2"
+        id="input-filled-with-icon2text"
         label=true
+        label-title="This is a label Title"
         required=true
+        check="[message,counter,watchcounter]"
         helper=true
-        helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
+        helper-message="Accept minimum 10 characters upto 90 which is a Helper message"
+        counter-on=true
         minlength="10"
         maxlength="90"
         input-filled-bordered=true
@@ -20,7 +22,7 @@
 </div>
 
 <h3> Input Filled With leading and trailing Icon , outlined, with border focus </h3>
-<div class="demo-page input__counter text-counter" id="text-counter-2">
+<div class="demo-page input__counter helper-message" id="helper-message-2">
 
     {{> input
         input-type="text"
@@ -31,9 +33,10 @@
         label=true
         label-title="Input Filled With Icon3"
         required=true
+        check="[message,counter]"
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
+        counter-on=true
         minlength="10"
         maxlength="90"
         autofocus=true
@@ -43,7 +46,7 @@
 
 </div>
 
-<div class="demo-page">
+<div class="demo-page helper-message" id="helper-message-3">
 
     {{> input
         input-type="text"
@@ -64,7 +67,7 @@
 
 </div>
 
-<div class="demo-page">
+<div class="demo-page helper-message" id="helper-message-4">
 
     {{> input
         input-type="text"
@@ -89,7 +92,7 @@
 
 <h3> Input Filled With trailing icon </h3>
 
-<div class="demo-page">
+<div class="demo-page helper-message" id="helper-message-5">
 
     {{> input
         input-type="text"
@@ -101,7 +104,7 @@
         input-attrs='
         autofocus=true
         autocomplete="input filled"
-        placeholder="Enter Input Filled"'
+        placeholder="Enter Input Filled dd"'
         required=true
         helper=true
         
@@ -112,7 +115,7 @@
 
 <h3> Input Filled With leading icon </h3>
 
-<div class="demo-page">
+<div class="demo-page helper-message" id="helper-message-6">
 
     {{> input
         input-type="text"
@@ -147,7 +150,6 @@
         autocomplete="input filled"
         placeholder="Enter Input Filled"'
         value="Disabled Input Filled Value x"
-        helper=true
         disabled=true
         input-filled-bordered=true
       
@@ -156,7 +158,7 @@
 </div>
 
 
-<div class="demo-page input__counter">
+<div class="demo-page helper-message" id="helper-message-7" >
 
     {{> input
         input-type="text"
@@ -164,13 +166,11 @@
         icon-leading=true
         icon-trailing=true
         id="input-filled-with-icon3"
-       
         label=true
         label-title="Label Title"
         required=true
         helper=true
-        helper-message="Accept minimum 10 characters upto 90"
-        on-helper-first=true
+        helper-message="Test helper message"
         disabled=true
         value="Disabled Input Filled Value x"
       
@@ -178,7 +178,7 @@
 
 </div>
 
-<div class="demo-page input__counter text-counter" id="text-counter-3">
+<div class="demo-page input__counter helper-message" id="errorI">
 
     {{> input
         input-type="text"
@@ -188,7 +188,7 @@
         required=true
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
+        counter-on=true
         minlength="10"
         maxlength="90"
         input-filled-bordered=true

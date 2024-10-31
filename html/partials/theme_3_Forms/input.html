@@ -1,7 +1,3 @@
-
-
-
-
 {{#if input-filled}}
 <div class="input__filled--wrapper"> 
 
@@ -60,10 +56,6 @@ autocomplete="{{autocomplete}}"
 autofocus
 {{/if}}
 
-{{#if title}}
-title="{{title}}" 
-{{/if}}
-
 {{#if required}}
 aria-required="true" 
 required 
@@ -74,6 +66,10 @@ readonly
 {{/if}}
 
 {{> comp-input-vue}}
+
+{{#if check}}
+check="{{check}}"
+{{/if}}
 
 {{> comp-input-min-max}}
 
@@ -86,27 +82,14 @@ aria-describedby="{{> comp-input-aria-describedby}}"
 
 {{#if disabled}} 
 disabled 
+
+
+
 {{/if}}/> <!-- end input -->
 
 {{#if input-icon}}
- 
 </div>
 {{/if}}
-
-{{#if label}} 
-{{else}}
-    {{#if helper-text-counter}} 
-    {{else}}
-        {{#if helper}}
-        {{else}}
-            {{#if required}} 
-                {{> comp-helper}} 
-            {{/if}} 
-        {{/if}}
-    {{/if}}
-{{/if}}
-
-
 
 {{#if input-filled}}
  <!-- Label filled -->
@@ -118,17 +101,7 @@ disabled
 {{#if input-filled}}
     {{> comp-input-icons}}
 {{/if}}
-{{#if on-helper-first}}
-    {{#if helper}}
-        {{> comp-helper}}
-    {{/if}}
 
-
-    {{#if error}}
-        {{> comp-error}}
-    {{/if}}
-
-{{/if}}
 
 {{#if input-filled}}
  </div>
@@ -138,8 +111,8 @@ disabled
 </div>
 {{/if}}
 
-{{#if helper-text-counter}}
-    <div class="span__group">
-        {{> comp-helper}}
-    </div>
+
+
+{{#if helper}}
+    {{> comp-helper}}
 {{/if}}

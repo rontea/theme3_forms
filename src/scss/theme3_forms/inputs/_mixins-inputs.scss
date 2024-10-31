@@ -148,7 +148,6 @@
 @mixin helper-message($font-size: $input-helper-font-size, 
     $color: $input-helper-color, 
     $margin: $input-helper-margin) {
-
     font-size: $font-size;
     color: $color;
     margin: $margin;
@@ -162,7 +161,6 @@
         font-size: $font-size;
         color: $input-error-color;
         margin: $margin;
-    
 }
 
 /** Icons */

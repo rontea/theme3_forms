@@ -25,14 +25,13 @@
         id="input_icon_demo_2"
         label=true
         label-title="Input Icon Demo"
-   
         required=true
         disabled=true
     }}
 
 </div>
 
-<div class="demo-page text-counter input__counter" id="text-counter-1">
+<div class="demo-page  helper-message" id="text-counter-1">
 
     {{> input
         input-type="text"
@@ -43,9 +42,10 @@
         label=true
         label-title="Input Icon Demo"
         required=true
+        check="[counter,watchcounter]"
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
-        helper-text-counter=true
+        counter-on=true
         minlength="10"
         maxlength="90"
     }}
