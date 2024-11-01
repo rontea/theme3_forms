@@ -33,10 +33,7 @@ const data = createApp({
 // Mount the app to the #data element
 data.mount('#sample');
 
-/**
- * Helper component for the message component.
- * - message: A string representing the message to display. 
- */
+
 const messageHelper = {
 
   delimiters: ['[[', ']]'],
@@ -83,22 +80,17 @@ const messageHelper = {
         throw new Error('helperElement not found');
       }
      
-     
-
-      
-
-
-      
     },
     watch: {
-      /**
-      * Watcher function that triggers the countChecker method whenever
-      * the userInput data property changes.
-      */
+      
       userInput() {
         
         if(this.checks.includes('counter')){
           this.countChecker();
+        }
+
+        if(this.checks.includes('pattern')){
+          this.checkPattern();
         }
       
               
@@ -114,8 +106,6 @@ const messageHelper = {
           const inputElement = this.$refs.inputElement;
           const helperElement = this.$refs.helperElement;
 
-
-
           const minLength = inputElement.getAttribute('minlength') || 0;
           let value = this.userInput;
           this.charCount = value.length;
@@ -123,11 +113,11 @@ const messageHelper = {
           if (value.length < minLength) {
             helperElement.classList.add('input__counter--error');
              
-            console.log('input is too short');
+            //console.log('input is too short');
           }else {
             helperElement.classList.remove('input__counter--error');
           
-            console.log('valid input');
+            //console.log('valid input');
           }
           
           if(this.checks.includes('watchcounter')){
@@ -147,15 +137,53 @@ const messageHelper = {
           throw new Error('inputElement not found');
         }
 
+      },
 
-       
+      checkPattern(){
+        
+        console.log('check pattern');
 
+        if(this.$refs.inputElement){
+
+          const inputElement = this.$refs.inputElement;
+
+            if(inputElement.getAttribute('pattern')){
+
+              if(!this.$refs.helperElement) {
+                throw new Error('helperElement not found');
+              }
+              const pattern = inputElement.getAttribute('pattern');
+              const regex = new RegExp(pattern);
+              const isPatternValid = regex.test(this.userInput, 'u');
+              const helperElement = this.$refs.helperElement;
+
+              if(!isPatternValid){
+                helperElement.classList.add('input__counter--error');
+                
+                if(this.userInput.length === 0) {
+                  this.message = 'You Entered empty value';
+                }else{  
+                  this.message = 'You Entered an invalid input';
+                }
+
+              }else{
+                helperElement.classList.remove('input__counter--error');
+                this.message = helperElement.getAttribute('message');
+              }
+
+            }else{
+              console.log('no pattern is define on ref inputElement');
+            }
+          
+
+        }else { 
+          throw new Error('inputElement not found');
+        }
 
       }
     }
   };
 
-  /** Counter  */
 document.querySelectorAll('.helper-message').forEach(element => { 
   const uniqueId = `#${element.id}`;
   console.log(uniqueId);

@@ -20,9 +20,7 @@
 <!-- Input Icon Inside -->
 {{#if input-icon}}
 <div class="input__style--wrapper">
-   
-        {{> comp-input-icons}}
-    
+    {{> comp-input-icons}}
 {{/if}}
 
 <input type="{{> comp-input-type}}" 
@@ -87,9 +85,7 @@ disabled
 
 {{/if}}/> <!-- end input -->
 
-{{#if input-icon}}
-</div>
-{{/if}}
+
 
 {{#if input-filled}}
  <!-- Label filled -->
@@ -103,6 +99,8 @@ disabled
 {{/if}}
 
 
+
+
 {{#if input-filled}}
  </div>
 {{/if}}
@@ -112,6 +110,9 @@ disabled
 {{/if}}
 
 
+{{#if input-icon}}
+</div>
+{{/if}}
 
 {{#if helper}}
     {{> comp-helper}}

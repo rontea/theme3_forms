@@ -5,17 +5,20 @@
     {{> input
         input-type="text"
         input-filled=true
-        id="input-filled-with-icon2text"
+        id="name"
         label=true
-        label-title="This is a label Title"
+        label-title="Name"
         required=true
-        check="[message,counter,watchcounter]"
+        check="[message,counter,watchcounter,pattern]"
+        pattern="^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]+$"
+        title="Allow Unicode letters, numbers, spaces, hyphens, and apostrophes"
         helper=true
-        helper-message="Accept minimum 10 characters upto 90 which is a Helper message"
+        helper-message="Enter you name"
         counter-on=true
-        minlength="10"
-        maxlength="90"
-        input-filled-bordered=true
+        minlength="3"
+        maxlength="30"
+        input-filled-standard=true
+       
       
     }}
 
@@ -40,7 +43,7 @@
         minlength="10"
         maxlength="90"
         autofocus=true
-        input-filled-bordered=true
+        input-filled-fill=true
       
     }}
 
@@ -61,7 +64,7 @@
         placeholder="Enter Input Filled"'
         required=true
         helper=true
-        input-filled-bordered=true
+        input-filled-outlined=true
       
     }}
 
@@ -82,7 +85,7 @@
         placeholder="Enter Input Filled"'
         required=true
         helper=true
-        input-filled-bordered=true
+        input-filled-standard=true
       
     }}
 
@@ -107,7 +110,7 @@
         placeholder="Enter Input Filled dd"'
         required=true
         helper=true
-        
+        input-filled-standard=true
       
     }}
 
@@ -130,7 +133,7 @@
         placeholder="Enter Input Filled"'
         required=true
         helper=true
-        
+        input-filled-outlined=true
       
     }}
 
@@ -151,7 +154,7 @@
         placeholder="Enter Input Filled"'
         value="Disabled Input Filled Value x"
         disabled=true
-        input-filled-bordered=true
+       input-filled-standard=true
       
     }}
 
@@ -173,7 +176,7 @@
         helper-message="Test helper message"
         disabled=true
         value="Disabled Input Filled Value x"
-      
+        input-filled-standard=true
     }}
 
 </div>
@@ -192,8 +195,8 @@
         minlength="10"
         maxlength="90"
         input-filled-bordered=true
-        value="Sample Value x"
         disabled=true
+        input-filled-standard=true
     }}
 
 </div>

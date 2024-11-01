@@ -100,6 +100,8 @@ $theme-input-box-icon-trailing : (
 "padding-right" : 3.5rem
 );
 
+
+
 $theme-input-filled : (
   "height" : $input-filled-height,
   "width" : $input-width,
@@ -115,42 +117,74 @@ $theme-input-filled : (
   "label-y" : $label-input-filled-top,
   "lable-x" : $label-input-filled-left,
   "label-font-size" : $font-medium,
-  "transition" : all 0.2s ease,
+  "transition" : all .2s ease,
   "outlined-border": solid 1px $input-border-color,
-  "outlined-label-background-color" : transparent,
-  "outlined-padding" : 2px,
+  "outlined-padding" : $input-padding,
+  "outlined-background-color" : $component-color-light,
+  "outlined-boder-radius" : $input-border-radius,
+  "outlined-focus" : 2px solid $input-focus-color,
+  "outlined-box-shadow-focus": 1px 1px 0px 3px $input-focus-color,
+  "outlined-label-background-color" : $component-color-light,
+  "outlined-label-padding" : 0px,
+  "outlined-label-with-value-padding" : 0px,
   "text-top-font-size" : 1.3rem,
-  "text-top-position-y" : .4rem,
+  "text-top-position-y" : 0,
   "text-top-position-x" : 3rem,
   "text-top-padding" : 0px,
   "text-top-bg-color-data" : $component-color-light,
   "text-top-bg-color-nodata" : $component-color-light,
-  "text-top-opacity": 1
+  "text-top-opacity": 1,
+  "standard-border" : solid 1px $input-border-color,
+  "standard-padding" : $input-padding,
+  "standard-background-color" : transparent,
+  "standard-boder-radius" : 0px,
+  "standard-focus" : 2px solid $input-focus-color,
+  "standard-box-shadow-focus": 0px 2px 0px 0px $input-focus-color,
+  "standard-label-background-color" : transparent,
+  "standard-label-padding" : 2px,
+  "standard-label-with-value-padding" : 0px,
+  "fill-border" : solid 1px $component-color-dark,
+  "fill-padding" : $input-padding,
+  "fill-background-color" : $component-color-gray,
+  "fill-boder-top-left-radius" : 5px,
+  "fill-boder-top-right-radius" : 5px,
+  "fill-focus" : 2px solid $input-focus-color,
+  "fill-box-shadow-focus": 0px 2px 0px 0px $input-focus-color,
+  "fill-label-background-color" : transparent,
+  "fill-label-padding" : 2px,
+  "fill-label-with-value-padding" : 2px,
+  "fill-top-bg-color-data" : transparent,
+  "fill-top-bg-color-nodata" : transparent,
+  "fill-text-top-position-y" : .69rem,
+  "fill-margin-left": 3.6rem
 
 );
 
-$theme-input-box-icon-leading : (
-  "width": auto,
-  "height":  $input-filled-height,
-  "font-size": $font-xl,
-  "position-x": 2rem,
-  "position-y": 4rem,
-  "tansform": translateY(-45%),
-  "padding-left" : 4.5rem,
-  "padding-right" : 4.5rem
+
+/** Input icon inside */
+$theme-input-box-icon-leading : (  
+"width": calc($input-box-height / 2),
+"height":  calc($input-box-height / 2),
+"font-size": $font-large,
+"position-x": 1rem,
+"position-y": 20%,
+"tansform": translateY(-50%),
+"padding-left" : 3.5rem,
+"padding-right" : 4.5rem
 );
 
-$theme-input-box-icon-trailing : (
-  "width": auto,
-  "height": $input-filled-height,
-  "font-size": $font-xl,
-  "position-x": 2rem,
-  "position-y": 4rem,
-  "tansform": translateY(-45%),
-  "padding-right" : 4.5rem
+$theme-input-box-icon-trailing : (  
+"width": calc($input-box-height / 2),
+"height":  calc($input-box-height / 2),
+"font-size": $font-large,
+"position-x": 1rem,
+"position-y": 20%,
+"tansform": translateY(-50%),
+"padding-left" : 3.5rem,
+"padding-right" : 3.5rem
 );
 
-
+/** Input icon sides */
 $theme-input-icon-leading : (
   "width": calc($input-filled-height / 2),
   "height":  calc($input-filled-height / 2),
@@ -162,6 +196,7 @@ $theme-input-icon-leading : (
   "padding-right" : 4.5rem
 );
 
+
 $theme-input-icon-trailing : (
   "width": calc($input-filled-height / 2),
   "height":  calc($input-filled-height / 2),
@@ -172,6 +207,8 @@ $theme-input-icon-trailing : (
   "padding-right" : 4.5rem
 );
 
+/** Input icon sides */
+
 $theme-input-icon-side : (
   "width": auto,
   "height":  $input-box-height,
@@ -181,7 +218,6 @@ $theme-input-icon-side : (
   "flex-icon": 0 1 auto,
   "flex-input": 1 1 0,
 );
-
 
 $theme-input-disabled : (
   "color" : $input-disabled-text-color,

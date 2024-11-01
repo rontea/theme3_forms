@@ -1,8 +1,10 @@
 {{#if input-class}}{{input-class}}
 {{else}}
     {{#if input-filled}}input__style--filled 
-        {{#if input-filled-outline}} input__style--filled--outlined{{/if}}
-        {{#if input-filled-bordered}} input__style--filled--outlined{{/if}}
+        
+        {{#if input-filled-outlined}} input__style--filled--outlined{{/if}}
+        {{#if input-filled-standard}} input__style--filled--standard{{/if}}
+        {{#if input-filled-fill}} input__style--filled--fill {{#if icon-leading}}input__style--filled--pleft {{/if}}{{/if}}
         {{#if icon-leading}} input__icon--pleft{{/if}}
         {{#if icon-trailing}} input__icon--pright{{/if}}
     {{else}}

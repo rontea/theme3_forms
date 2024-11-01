@@ -13,7 +13,7 @@
               display: flex;
               align-items: center;
               width: 100%;
-              position: relative;
+              
 
               @include input-icons-side($theme-input-icon-side);
       
@@ -30,11 +30,11 @@
        }
 
        &__style--wrapper{ 
-             display: relative;
+           position: relative;
        }
 
        &__style{
-              @include input-icons($theme-input-box-icon-leading ,$theme-input-box-icon-trailing);
+              @include input-icons-inside($theme-input-box-icon-leading ,$theme-input-box-icon-trailing);
        }
 
        &__style--filled{
@@ -42,7 +42,7 @@
        }
 
        &__icon{
-              @include input-icons($theme-input-icon-leading,$theme-input-icon-trailing);
+              @include input-icons-inside($theme-input-icon-leading,$theme-input-icon-trailing);
        }
 
        &__number--style{

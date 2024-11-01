@@ -25,7 +25,7 @@
 /** Input style filled  */
 @mixin input-style-filled($theme : $theme-input-filled ,
     $theme-back-shadow: $theme-box-shadow-input-filled-default, 
-    $class-label : "label__filled--style") {
+    $class-label : "label__filled--style" ) {
     
    
     position: relative;
@@ -33,28 +33,79 @@
     width: map.get($theme, "width");
     font-size: map.get($theme, "font-size");
     color: map.get($theme, "color");
-    background-color: map.get($theme, "background-color");
     border: none;
-    border-radius: map.get($theme, "border-radius");
-    padding: map.get($theme, "padding");
-    border-bottom: map.get($theme, "input-filled-border-bottom");
-
-    &--bordered {
-        border: map.get($theme, "input-filled-border-bottom");
-    }
-
+    transition: map.get($theme, "transition");
+    
     &--outlined {
         border: map.get($theme, "outlined-border");
-
+        padding: map.get($theme, "outlined-padding");
+        background-color: map.get($theme, "outlined-background-color");
+        border-radius: map.get($theme, "border-radius");
+       
         &:focus {
-            border: map.get($theme, "input-filled-border-bottom-focus");
+            border: map.get($theme, "outline-focus");
             outline: none;
-            @include box-shadow-theme($theme-box-shadow-input-filled-default);
+            box-shadow: map.get($theme, "outlined-box-shadow-focus");
 
             + label {
+                top:  map.get($theme, "text-top-position-y");
+                left: map.get($theme, "text-top-position-x");
+                font-size:  map.get($theme, "text-top-font-size");
+                opacity: map.get($theme, "text-top-opacity");
+                color: map.get($theme, "label-placeholder-color");
                 background-color: map.get($theme, "outlined-label-background-color");
                 padding: map.get($theme, "outlined-label-padding");
             }
+        }
+
+        /** When there is text make sure that label stay on top */
+        &:not(:placeholder-shown) + .#{$class-label} {
+            top:  map.get($theme, "text-top-position-y");
+            left: map.get($theme, "text-top-position-x");
+            font-size:  map.get($theme, "text-top-font-size");
+            color: map.get($theme, "label-placeholder-color");
+            opacity: map.get($theme, "text-top-opacity");
+            background-color: map.get($theme, "text-top-bg-color-nodata");
+            padding: map.get($theme, "outlined-label-with-value-padding");
+            
+        }
+    }
+
+    &--standard {
+        
+        border-bottom: map.get($theme, "standard-border");
+        padding: map.get($theme, "standard-padding");
+        background-color: map.get($theme, "standard-background-color");
+        border-radius: map.get($theme, "standard-border-radius");
+
+        &:focus {
+            border-bottom: map.get($theme, "standard-focus");
+            outline: none;
+            box-shadow: map.get($theme, "standard-box-shadow-focus");
+
+            + label {
+              
+                top:  map.get($theme, "text-top-position-y");
+                left: map.get($theme, "text-top-position-x");
+                font-size:  map.get($theme, "text-top-font-size");
+                color: map.get($theme, "label-placeholder-color");
+                opacity: map.get($theme, "text-top-opacity");
+                background-color: map.get($theme, "standard-label-background-color");
+                padding: map.get($theme, "standard-label-padding");
+               
+            }
+        }
+
+        /** When there is text make sure that label stay on top */
+        &:not(:placeholder-shown) + .#{$class-label} {
+            top:  map.get($theme, "text-top-position-y");
+            left: map.get($theme, "text-top-position-x");
+            font-size:  map.get($theme, "text-top-font-size");
+            color: map.get($theme, "label-placeholder-color");
+            opacity: map.get($theme, "text-top-opacity");
+            background-color: map.get($theme, "text-top-bg-color-nodata");
+            padding: map.get($theme, "standard-label-with-value-padding");
+            
         }
     }
     
@@ -62,33 +113,63 @@
     &::placeholder {
         opacity: 0;
     }
+    &--fill {
+        border-bottom: map.get($theme, "fill-border");
+        background-color: map.get($theme, "fill-background-color");
+        border-top-left-radius: map.get($theme, "fill-border-top-left-radius");
+        border-top-right-radius: map.get($theme, "fill-border-top-right-radius");
+        padding: map.get($theme, "fill-padding");
+       
+        
 
-    &:focus{
-        border-bottom: map.get($theme, "input-filled-border-bottom-focus");
-        outline: none;
-        @include box-shadow-theme($theme-back-shadow);
+        &:focus{
+            border-bottom: map.get($theme, "fill-focus");
+            outline: none;
+            box-shadow: map.get($theme, "fill-box-shadow-focus");
 
-        + label {
-            top:  map.get($theme, "text-top-position-y");
-            left: map.get($theme, "text-top-position-x");
+            + label {
+                // theme this
+                top: map.get($theme, "fill-text-top-position-y");
+                font-size:  map.get($theme, "text-top-font-size");
+                color: map.get($theme, "label-placeholder-color");
+                opacity: map.get($theme, "text-top-opacity");
+                background-color: map.get($theme, "fill-top-bg-color-nodata");
+                padding: map.get($theme, "fill-label-padding");
+              
+            }
+        }
+
+        /** When there is text make sure that label stay on top */
+        &:not(:placeholder-shown) + .#{$class-label} {
+            // theme this
+            top: map.get($theme, "fill-text-top-position-y");
             font-size:  map.get($theme, "text-top-font-size");
             color: map.get($theme, "label-placeholder-color");
             opacity: map.get($theme, "text-top-opacity");
-            background-color: map.get($theme, "text-top-bg-color-data");
-            padding: map.get($theme, "text-top-padding");
+            background-color: map.get($theme, "fill-top-bg-color-data");
+            padding: map.get($theme, "fill-label-with-value-padding");
+           
+        }
+
+        
+   
+    }
+
+    
+    // coming from theme-input-icon-leading = font-size and left padding of fill
+    &--pleft {
+
+        &:focus{
+            + label {
+                margin-left:map.get($theme, "fill-margin-left");
+            }
+        }
+
+        &:not(:placeholder-shown) + .#{$class-label} {
+            margin-left:map.get($theme, "fill-margin-left");
         }
     }
 
-    /** When there is text make sure that label stay on top */
-    &:not(:placeholder-shown) + .#{$class-label} {
-        top:  map.get($theme, "text-top-position-y");
-        font-size:  map.get($theme, "text-top-font-size");
-        color: map.get($theme, "label-placeholder-color");
-        opacity: map.get($theme, "text-top-opacity");
-        background-color: map.get($theme, "text-top-bg-color-nodata");
-        padding: map.get($theme, "text-top-padding");
-        
-    }
 }
 
 /** filled label */
@@ -102,7 +183,6 @@
     opacity: .7;
     transition: map.get($theme, "transition");
    
-
  }
 
 /** Sizes */
@@ -132,11 +212,18 @@
    
 }
 /** disabled */
-@mixin input-disabled($theme) {
+@mixin input-disabled($theme, $class-label : "label__filled--style") {
     color: map.get($theme, "color");
     background-color: map.get($theme, "background-color");
     opacity: map.get($theme, "opacity");
     cursor: map.get($theme, "cursor");
+
+    &:not(:placeholder-shown) + .#{$class-label} {
+       
+        background-color: transparent !important;
+        
+       
+    }
 }
 
 /** required */
@@ -163,7 +250,7 @@
         margin: $margin;
 }
 
-/** Icons */
+/** Icons side */
 
 @mixin input-icons-side($theme,
     $color-disabled: lighten($component-color-dark, 45%)) {
@@ -198,7 +285,7 @@
 }
 
 /** Icons */
-@mixin input-icons($theme,
+@mixin input-icons-inside($theme,
     $theme2,
     $color-disabled: lighten($component-color-dark, 45%)) {
     
@@ -258,7 +345,6 @@
         border: map.get($theme, "border");
     }
 
-   
     &:disabled {
         opacity: map.get($theme, "checkbox-disabled");
     }
