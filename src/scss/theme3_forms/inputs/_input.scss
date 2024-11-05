@@ -104,10 +104,8 @@
            
        }
 
-       &--error {
-              @include error-message(map.get($theme-input-error, "font-size"),
-              map.get($theme-input-error, "color"),
-              map.get($theme-input-error, "margin"));
+       &__border--error {
+              
        }
 
        @each $size, $values in $input-sizes {
@@ -158,9 +156,7 @@
                             @include label-style();
                      }
 
-                     & {
-                            @include error-message();
-                     }
+                     
 
                      & {
                             @include input-placeholder();

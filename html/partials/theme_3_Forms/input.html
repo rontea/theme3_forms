@@ -37,7 +37,7 @@
         {{#if value}}
         value="{{value}}"
         {{/if}}
-        arial-invalid="false"
+        aria-invalid="false"
         
     {{/if}}
 {{/if}}
@@ -56,7 +56,9 @@ autofocus
 
 {{#if required}}
 aria-required="true" 
-required 
+required
+{{else}}
+ aria-required="false" 
 {{/if}}
 
 {{#if readonly}} 
@@ -71,7 +73,7 @@ check="{{check}}"
 
 {{> comp-input-min-max}}
 
-aria-describedby="{{> comp-input-aria-describedby}}"
+{{> comp-input-aria-describedby}}
 
 {{#if label}}
 {{else}}

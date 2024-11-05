@@ -53,7 +53,6 @@ const messageHelper = {
       console.log('mounted');
       if(this.$refs.inputElement) {
         const inputElement = this.$refs.inputElement;
-        this.maxCount = inputElement.getAttribute('maxlength') || 0;
 
         if(inputElement.getAttribute('check')) {
           console.log('class');
@@ -79,108 +78,185 @@ const messageHelper = {
       }else{
         throw new Error('helperElement not found');
       }
+
+      if(this.checks.includes('counter')){
+
+        const inputElement = this.$refs.inputElement;
+
+        if(!inputElement.getAttribute('maxlength')) {
+          throw new Error('maxlength not found');
+        }else {
+          this.maxCount = inputElement.getAttribute('maxlength') || 0;
+        }
+
+        if(!this.$refs.helperCounter) {
+          throw new Error('helperCounter not found');
+        }
+      }
+
+      if(this.checks.includes('pattern')){
+
+        const inputElement = this.$refs.inputElement;
+
+        if(!inputElement.getAttribute('pattern')){
+          inputElement.setAttribute('pattern',"^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]+$");
+          inputElement.setAttribute('title',"Must be between 3 and 30 alphabetic characters");
+          console.log("Missing Pattern: Autoset pattern to ^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]+$")
+        }
+      }
      
     },
     watch: {
       
+/**
+ * Watcher for userInput
+ * 
+ * This watcher observes changes to the userInput property. 
+ * Whenever the userInput value changes, it triggers the 
+ * checkerInput method to validate the input against 
+ * specified rules such as minlength and pattern.
+ */
       userInput() {
-        
-        if(this.checks.includes('counter')){
-          this.countChecker();
-        }
-
-        if(this.checks.includes('pattern')){
-          this.checkPattern();
-        }
-      
-              
+          this.checkerInput();
       }
     },
     methods: {
       
-      countChecker(){
+      /**
+       * CountChecker
+       * 
+       * This method checks if the input length is valid according to the minlength attribute.
+       * If the input length is shorter than the minlength, it will add an error class to the helper element.
+       * If the input length is valid, it will remove the error class from the helper element.
+       * If the watchcounter attribute is present, it will also update the counter element with the same class.
+       * 
+       * @return {void}
+       */
+      checkerInput(){
 
-        console.log('check counter');
-
-        if(this.$refs.inputElement && this.$refs.helperElement) {
-          const inputElement = this.$refs.inputElement;
-          const helperElement = this.$refs.helperElement;
-
-          const minLength = inputElement.getAttribute('minlength') || 0;
-          let value = this.userInput;
-          this.charCount = value.length;
-
-          if (value.length < minLength) {
-            helperElement.classList.add('input__counter--error');
-             
-            //console.log('input is too short');
-          }else {
-            helperElement.classList.remove('input__counter--error');
-          
-            //console.log('valid input');
-          }
-          
-          if(this.checks.includes('watchcounter')){
-            if(this.$refs.helperCounter) {
-              const helperCounter = this.$refs.helperCounter;
-  
-              if(value.length === 0 || value.length < minLength) {
-                helperCounter.classList.add('input__counter--error');
-              }else {
-                helperCounter.classList.remove('input__counter--error');
-              }
-            }
-          }
-      
-  
-        }else {
-          throw new Error('inputElement not found');
-        }
-
-      },
-
-      checkPattern(){
+        const inputElement = this.$refs.inputElement;
+        const helperElement = this.$refs.helperElement;
         
-        console.log('check pattern');
+        
 
-        if(this.$refs.inputElement){
+        if(this.checks.includes('counter')){
+          const helperCounter = this.$refs.helperCounter;
+          const minLength = inputElement.getAttribute('minlength');
+          this.charCount = this.userInput.length;
 
-          const inputElement = this.$refs.inputElement;
+          if(!this.checkMinLength(this.userInput,minLength)){
+            this.setErrorCLass(helperElement,'input__counter--error');
 
-            if(inputElement.getAttribute('pattern')){
-
-              if(!this.$refs.helperElement) {
-                throw new Error('helperElement not found');
-              }
-              const pattern = inputElement.getAttribute('pattern');
-              const regex = new RegExp(pattern);
-              const isPatternValid = regex.test(this.userInput, 'u');
-              const helperElement = this.$refs.helperElement;
-
-              if(!isPatternValid){
-                helperElement.classList.add('input__counter--error');
-                
-                if(this.userInput.length === 0) {
-                  this.message = 'You Entered empty value';
-                }else{  
-                  this.message = 'You Entered an invalid input';
-                }
-
-              }else{
-                helperElement.classList.remove('input__counter--error');
-                this.message = helperElement.getAttribute('message');
-              }
-
-            }else{
-              console.log('no pattern is define on ref inputElement');
+            if(this.checks.includes('message-counter')){
+              this.message = 'Please enter at least ' + minLength + ' characters';
+              this.setErrorCLass(helperCounter,'input__counter--error');
             }
+
+            inputElement.setAttribute('aria-invalid','true');
+          }else{
+            this.removeErrorCLass(helperElement,'input__counter--error');
+            if(this.checks.includes('message-counter')){
+              this.message = helperElement.getAttribute('message');
+              this.removeErrorCLass(helperCounter,'input__counter--error');
+              if(this.checks.includes('pattern')){
+
+                if(!this.isPatternValid(inputElement)){
+                  this.setErrorCLass(helperElement,'input__counter--error');
+                  this.message = 'You Entered an invalid input';
+                }else{
+                  this.removeErrorCLass(helperElement,'input__counter--error');
+                  this.message = helperElement.getAttribute('message');
+                }
+               
+              }
+            }
+            inputElement.setAttribute('aria-invalid','false');
+          }
+        }else if(this.checks.includes('pattern') && !this.checks.includes('counter')){
           
-
-        }else { 
-          throw new Error('inputElement not found');
+          if(this.userInput.length !== 0){
+            if(!this.isPatternValid(inputElement)){
+              this.setErrorCLass(helperElement,'input__counter--error');
+              this.message = 'You Entered an invalid input';
+              inputElement.setAttribute('aria-invalid','true');
+            }else{
+              this.removeErrorCLass(helperElement,'input__counter--error');
+              this.message = helperElement.getAttribute('message');
+              inputElement.setAttribute('aria-invalid','false');
+            }
+          }else{
+            if(inputElement.required){
+              if(this.userInput.length === 0){
+                this.setErrorCLass(helperElement,'input__counter--error');
+                this.message = 'This field is required';
+                inputElement.setAttribute('aria-invalid','true');
+              }else{
+                this.removeErrorCLass(helperElement,'input__counter--error');
+                this.message = helperElement.getAttribute('message');
+                inputElement.setAttribute('aria-invalid','false');
+              }
+            }
+          }
+          
+        }else {
+          if(inputElement.required){
+            if(this.userInput.length === 0){
+              this.setErrorCLass(helperElement,'input__counter--error');
+              this.message = 'This field is required';
+            }else{
+              this.removeErrorCLass(helperElement,'input__counter--error');
+              this.message = helperElement.getAttribute('message');
+            }
+          }
         }
+          
+      },
+      /**
+       * Check if the user input length is less than min length or empty
+       * @param {string} userInput - User input value
+       * @param {number} minLength - Minimum length allowed
+       * @return {boolean} - True if userInput length is ok, false otherwise
+       */
+      checkMinLength(userInput,minLength){
+        if(userInput.length < minLength || userInput.length === 0){
+          return false;
+        }else{
+          return true;
+        }
+      },
+      /**
+       * Add the given className to the element
+       * @param {Element} element - The element to add the className
+       * @param {string} className - The className to add
+       */
 
+      setErrorCLass(element,className){
+        element.classList.add(className);
+        
+      },
+      /**
+       * Remove the given className from the element
+       * @param {Element} element - The element to remove the className
+       * @param {string} className - The className to remove
+       */
+
+      removeErrorCLass(element,className){
+        element.classList.remove(className);
+        
+      },
+      /**
+       * Check if the user input matches the given pattern
+       * @param {Element} inputElement - The input element with the pattern attribute
+       * @return {boolean} - True if userInput matches the pattern, false otherwise
+       */
+
+      isPatternValid(inputElement){
+        const pattern = inputElement.getAttribute('pattern');
+        const regex = new RegExp(pattern);
+        const isPatternValid = regex.test(this.userInput, 'u');
+        return isPatternValid;
       }
+
     }
   };
 

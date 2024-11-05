@@ -101,7 +101,7 @@ $theme-input-box-icon-trailing : (
 );
 
 
-
+/** filled input */
 $theme-input-filled : (
   "height" : $input-filled-height,
   "width" : $input-width,
@@ -219,11 +219,21 @@ $theme-input-icon-side : (
   "flex-input": 1 1 0,
 );
 
+/** Input disabled */
 $theme-input-disabled : (
   "color" : $input-disabled-text-color,
   "background-color" : $input-disabled-bg-color,
   "opacity" : $input-disabled-opacity,
   "cursor" : not-allowed
+);
+
+/** Input error */
+
+$theme-input-error : (
+"border": solid 1px $input-error-color,
+"border-outlined" : solid 1px $input-error-color,
+"border-fill" : solid 1px $input-error-color,
+"border-standart ": solid 1px $input-error-color,
 );
 
 // Input style of number

@@ -9,11 +9,11 @@
         label=true
         label-title="Name"
         required=true
-        check="[message,counter,watchcounter,pattern]"
+        check="[message-counter,counter,watch-counter,pattern,border-error]"
         pattern="^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]+$"
         title="Allow Unicode letters, numbers, spaces, hyphens, and apostrophes"
         helper=true
-        helper-message="Enter you name"
+        helper-message="Enter you Name"
         counter-on=true
         minlength="3"
         maxlength="30"
@@ -36,7 +36,7 @@
         label=true
         label-title="Input Filled With Icon3"
         required=true
-        check="[message,counter]"
+        check="[message-counter,counter,pattern]"
         helper=true
         helper-message="Accept minimum 10 characters upto 90"
         counter-on=true
@@ -49,6 +49,7 @@
 
 </div>
 
+<p> Test pattern </p>
 <div class="demo-page helper-message" id="helper-message-3">
 
     {{> input
@@ -62,7 +63,7 @@
         autofocus=true
         autocomplete="input filled"
         placeholder="Enter Input Filled"'
-        required=true
+        check="[pattern]"
         helper=true
         input-filled-outlined=true
       
@@ -86,6 +87,7 @@
         required=true
         helper=true
         input-filled-standard=true
+        check="[pattern]"
       
     }}
 

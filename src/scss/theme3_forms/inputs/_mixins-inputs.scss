@@ -41,6 +41,10 @@
         padding: map.get($theme, "outlined-padding");
         background-color: map.get($theme, "outlined-background-color");
         border-radius: map.get($theme, "border-radius");
+
+        &--error{
+            border: map.get($theme-input-error, "border-outlined");
+        }
        
         &:focus {
             border: map.get($theme, "outline-focus");
@@ -193,7 +197,8 @@
 }
 
 /** Focus */
-@mixin input-focus($color: $input-focus-color, $theme: $theme-box-shadow-default) {
+@mixin input-focus($color: $input-focus-color,
+     $theme: $theme-box-shadow-default) {
 
     &:focus {
         border-color: $color;
@@ -203,7 +208,8 @@
 }
 
 /** Placeholder */
-@mixin input-placeholder($color : $input-placeholder-color , $opacity : $input-placeholder-opacity) {
+@mixin input-placeholder($color : $input-placeholder-color , 
+    $opacity : $input-placeholder-opacity) {
 
     &::placeholder{
         color: $color;
@@ -241,13 +247,9 @@
 }
 
 /** Error Message */
-@mixin error-message($font-size: 90%, 
-    $color: $input-error-color, 
-    $margin: 3px) {
+@mixin error-border($theme: $theme-input-error) {
     
-        font-size: $font-size;
-        color: $input-error-color;
-        margin: $margin;
+    border: map.get($theme, "border");
 }
 
 /** Icons side */
