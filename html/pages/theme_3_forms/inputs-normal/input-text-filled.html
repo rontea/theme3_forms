@@ -18,6 +18,8 @@
         minlength="3"
         maxlength="30"
         input-filled-standard=true
+        v-model="userInput"
+        ref="inputElement" 
        
       
     }}
@@ -44,6 +46,8 @@
         maxlength="90"
         autofocus=true
         input-filled-fill=true
+        v-model="userInput"
+        ref="inputElement" 
       
     }}
 
@@ -66,6 +70,8 @@
         check="[pattern]"
         helper=true
         input-filled-outlined=true
+        v-model="userInput"
+        ref="inputElement" 
       
     }}
 
@@ -88,6 +94,8 @@
         helper=true
         input-filled-standard=true
         check="[pattern]"
+        v-model="userInput"
+        ref="inputElement"
       
     }}
 
@@ -113,6 +121,8 @@
         required=true
         helper=true
         input-filled-standard=true
+        v-model="userInput"
+        ref="inputElement"
       
     }}
 
@@ -136,6 +146,8 @@
         required=true
         helper=true
         input-filled-outlined=true
+        v-model="userInput"
+        ref="inputElement"
       
     }}
 
@@ -156,7 +168,9 @@
         placeholder="Enter Input Filled"'
         value="Disabled Input Filled Value x"
         disabled=true
-       input-filled-standard=true
+        input-filled-standard=true
+        v-model="userInput"
+        ref="inputElement"
       
     }}
 
@@ -179,6 +193,8 @@
         disabled=true
         value="Disabled Input Filled Value x"
         input-filled-standard=true
+        v-model="userInput"
+        ref="inputElement"
     }}
 
 </div>
@@ -199,6 +215,8 @@
         input-filled-bordered=true
         disabled=true
         input-filled-standard=true
+        v-model="userInput"
+        ref="inputElement"
     }}
 
 </div>

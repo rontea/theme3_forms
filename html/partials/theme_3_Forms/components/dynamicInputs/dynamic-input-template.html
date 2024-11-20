@@ -1,0 +1,30 @@
+<div class="demo-page input__counter" id="helper-message" ref="inputContainer">
+    <div class="input__filled--wrapper"> 
+
+        {{> dynamic-input 
+            input-type="text"
+            id=true
+            name=true
+            placeholder=true
+            checks="[counter,watchcounter]"
+            ref="inputElement"
+            class="input__style--filled input__style--filled--standard"
+        }}
+        <label for="name" class="label__filled--style" ref="labelElement"> 
+            [[ labelTitle ]]<span class="input--required" ref="requiredElement"> *</span>
+        </label>
+    </div>
+
+    <div class="span__group">
+        <span class="input--helper" id="name" message="Enter you Name">
+         [[ message ]]
+        </span>        
+        <span
+            class=" input--helper"
+            id="name"> 
+            <span> </span>
+            /
+            <span> </span>
+        </span>
+    </div>
+ </div>

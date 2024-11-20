@@ -1,0 +1,64 @@
+<input 
+    {{#if type}}
+        type="{{type}}"
+    {{/if}}
+    
+    {{#if id}}
+        :id="inputId" 
+    {{/if}}
+    
+    {{#if name}}
+        :name="inputName"
+    {{/if}}
+
+    {{#if value}}
+        :value="inputValue"
+    {{/if}}
+
+    {{#if ref}}
+    ref="{{ref}}"
+    {{/if}}
+    
+    {{#if class}}
+        class="{{class}}"
+    {{/if}}
+
+    {{#if style}}
+        style="{{style}}"
+    {{/if}}
+
+    {{#if placeholder}}
+        :placeholder="inputPlaceholder"
+    {{/if}}
+   
+    {{#if readonly}}
+        readonly
+    {{/if}}
+
+    {{#if disabled}}
+        disabled
+    {{/if}}
+
+    {{#if required}}
+        required        
+    {{/if}}
+
+    {{#if autofocus}}
+        autofocus
+    {{/if}}
+
+    {{#if autocomplete}}    
+        autocomplete="{{autocomplete}}"
+    {{/if}}
+
+    {{#if form}}
+        form="inputForm"
+    {{/if}}
+
+    {{#if checks}}
+        checks="{{checks}}"
+    {{/if}}
+
+    {{> dynamic-input-validations}}
+
+/>

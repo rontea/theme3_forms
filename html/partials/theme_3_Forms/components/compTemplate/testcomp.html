@@ -1,0 +1,35 @@
+
+
+<template id="dynamic-inputs-template">
+
+    <div v-for="(input, index) in inputs" :key="index" >
+          <div class="demo-page input__counter helper-message" :id="`${input.id}`">
+                {{> input
+                input-type="text"
+                input-filled=true
+                id="input"
+                label=true
+                label-title="Name"
+                required=true
+                check="[message-counter,counter,watch-counter,pattern"
+                pattern="^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s'-]+$"
+                title="Allow Unicode letters, numbers, spaces, hyphens, and apostrophes"
+                helper=true
+                helper-message="Enter you Name"
+                counter-on=true
+                minlength="3"
+                maxlength="30"
+                input-filled-standard=true
+                v-model="userInput"
+                ref="inputElement" 
+                }}
+            </div>
+    </div>
+    <button @click="addInput">Add New Input</button>
+   
+  
+</template>
+
+
+
+     

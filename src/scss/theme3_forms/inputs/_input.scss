@@ -104,10 +104,6 @@
            
        }
 
-       &__border--error {
-              
-       }
-
        @each $size, $values in $input-sizes {
        
               &--#{$size} {

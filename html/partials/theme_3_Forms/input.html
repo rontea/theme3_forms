@@ -30,7 +30,8 @@
 
         {{/ifLists}} 
     {{else}}
-        id="{{> comp-input-id}}"
+        {{> comp-input-id}}
+        
         name="{{> comp-input-name }}"
         class="{{> comp-input-class }}"
         {{> comp-input-attrs}}
@@ -41,6 +42,7 @@
         
     {{/if}}
 {{/if}}
+
 
 {{> comp-input-placeholder}}
   

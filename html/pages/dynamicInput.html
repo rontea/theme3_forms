@@ -1,0 +1,16 @@
+<p> Test Dynamic Inputs </p>
+
+<div id="myTestDynamicInputs">
+
+     <h1>Dynamic Inputs</h1>
+
+      <button @click="addInput">Add Dynamic Input</button>
+
+    
+      <div v-for="input in inputs" :key="input.id">
+        [[ input.id]]  {{> dynamic-input-template}}
+      </div>
+   
+
+   
+</div>
