@@ -1,11 +1,14 @@
+
+<template  id="dynamic-message-helper-template">
+
 <div class="demo-page input__counter" id="helper-message" ref="inputContainer">
     <div class="input__filled--wrapper"> 
 
         {{> dynamic-input 
             input-type="text"
-            id=true
-            name=true
-            placeholder=true
+            id="inputId"
+            name="inputName"
+            placeholder="inputPlaceholder"
             checks="[counter,watchcounter]"
             ref="inputElement"
             class="input__style--filled input__style--filled--standard"
@@ -27,4 +30,5 @@
             <span> </span>
         </span>
     </div>
- </div>
+</div>
+</template>

@@ -4,15 +4,15 @@
     {{/if}}
     
     {{#if id}}
-        :id="inputId" 
+        :id="{{id}}" 
     {{/if}}
     
     {{#if name}}
-        :name="inputName"
+        :name="{{name}}"
     {{/if}}
 
     {{#if value}}
-        :value="inputValue"
+        :value="{{value}}"
     {{/if}}
 
     {{#if ref}}
@@ -28,7 +28,7 @@
     {{/if}}
 
     {{#if placeholder}}
-        :placeholder="inputPlaceholder"
+        :placeholder="{{placeholder}}"
     {{/if}}
    
     {{#if readonly}}

@@ -48,6 +48,8 @@ document.querySelectorAll('.helper-message').forEach(element => {
 });
 
 
+
+
 createApp(dynamicMessageHelper).mount('#myTestApp'); 
 
 
