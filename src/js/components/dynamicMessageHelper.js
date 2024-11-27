@@ -7,38 +7,66 @@ const {ref , onMounted, nextTick} = Vue;
     delimiters: ['[[', ']]'],
     template: '#dynamic-message-helper-template',
     props: {
-      inputId: {
-      type: String,
-      required:true,
-      },
-      name: {
-        type: String,
+
+      inputFields: {
+        type: Object,
         required:true,
-      }
+      }  
     },
     setup(props) {
       
       const inputElement = ref(null);
 
-      const message = ref('This is a reactive message');
-      const inputId = ref(props.inputId);
-      const inputName = ref(props.name);
-      const inputValue = ref('');
-      const inputPlaceholder = ref(props.name);
-      const labelTitle = ref('lableTitle');
+      const message = ref(props.inputFields.message.default || 'Message not defined');
+      const inputId = ref(props.inputFields.inputId || 'inputIdNotDefined');
+      const inputName = ref(props.inputFields.inputName || 'inputNameNotDefined');
+      const inputValue = ref(props.inputFields.value || '');
+      const inputPlaceholder = ref(props.inputPlaceholder || 'inputPlaceholderNotDefined');
+      const labelTitle = ref(props.inputFields.labelTitle || 'labelTitleNotDefined');
+      const disabled = ref(props.inputFields.disabled || false);
+      const required = ref(props.inputFields.required || false);
+      const ariaInvalid = ref(props.inputFields.ariaInvalid || false);
+      const autoComplete = ref(props.inputFields.autoComplete || 'off');
+      
+      //classess
 
-      console.log(inputName.value);
-      console.log(inputId.value);
+      const disabledClass = ref(props.inputFields.classes.disabled || 'disabled');
+      const inputClass = ref(props.inputFields.classes.inputClass || '');
 
       onMounted( async () => {
 
         await nextTick();
-        if(inputElement.value) {
-          console.log(inputElement.value);
-        }else{
+
+        if(!inputElement.value) {
           console.warn('inputElement ref not found. Skipping setup.');
         }
+
+        if(inputClass.value !== '') {
+          addClass(inputElement.value,inputClass.value);
+        }
+
+        if(required.value){
+          inputElement.value.setAttribute('required','');
+          inputElement.value.setAttribute('aria-required','true');
+        }
+        if(disabled.value){
+          inputElement.value.setAttribute('disabled','');
+          addClass(inputElement.value,disabledClass.value);
+        }
+
       });
+
+      const setErrorClass = (element,className) => {
+        element.classList.add(className);
+      } 
+
+      const addClass = (element,className) => {
+        element.classList.add(className);
+      }
+
+      const removeClass = (element,className) => {
+        element.classList.remove(className);
+      }
       
         return {
            message,
@@ -48,6 +76,11 @@ const {ref , onMounted, nextTick} = Vue;
            inputPlaceholder,
            inputElement,
            labelTitle,
+           required,
+           disabled,
+           ariaInvalid,
+           autoComplete,
+           inputClass,
           };
     },
    

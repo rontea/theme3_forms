@@ -9,26 +9,13 @@
             id="inputId"
             name="inputName"
             placeholder="inputPlaceholder"
-            checks="[counter,watchcounter]"
             ref="inputElement"
             class="input__style--filled input__style--filled--standard"
         }}
-        <label for="name" class="label__filled--style" ref="labelElement"> 
-            [[ labelTitle ]]<span class="input--required" ref="requiredElement"> *</span>
-        </label>
+
+        {{> dynamic-input-label }}
     </div>
 
-    <div class="span__group">
-        <span class="input--helper" id="name" message="Enter you Name">
-         [[ message ]]
-        </span>        
-        <span
-            class=" input--helper"
-            id="name"> 
-            <span> </span>
-            /
-            <span> </span>
-        </span>
-    </div>
+    {{> dynamic-input-message }}
 </div>
 </template>

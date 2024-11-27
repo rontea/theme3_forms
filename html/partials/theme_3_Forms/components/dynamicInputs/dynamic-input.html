@@ -19,9 +19,7 @@
     ref="{{ref}}"
     {{/if}}
     
-    {{#if class}}
-        class="{{class}}"
-    {{/if}}
+    {{> dynamic-input-class}}
 
     {{#if style}}
         style="{{style}}"
@@ -35,20 +33,13 @@
         readonly
     {{/if}}
 
-    {{#if disabled}}
-        disabled
-    {{/if}}
-
-    {{#if required}}
-        required        
-    {{/if}}
-
+  
     {{#if autofocus}}
         autofocus
     {{/if}}
 
     {{#if autocomplete}}    
-        autocomplete="{{autocomplete}}"
+        :autocomplete="{{autoComplete}}"
     {{/if}}
 
     {{#if form}}
@@ -58,6 +49,8 @@
     {{#if checks}}
         checks="{{checks}}"
     {{/if}}
+
+    :aria-invalid="false"
 
     {{> dynamic-input-validations}}
 

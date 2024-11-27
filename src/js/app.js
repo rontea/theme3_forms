@@ -50,9 +50,36 @@ document.querySelectorAll('.helper-message').forEach(element => {
 
 
 
-createApp(dynamicMessageHelper).mount('#myTestApp'); 
+
 
 
 /** Test Dynamic Inputs */
+
+const inputFields = {
+  inputName: "Name",
+  inputId: "inputName",
+  inputPlaceholder: "Enter your Name",
+  labelTitle: "Name",
+  required: true,
+  disabled: false,
+  autoComplete: 'off',
+  ariaInvalid: false,
+  checks: ["watchcounter","watchpattern"],
+  message: {
+    default: "Enter you Name",
+    error: "Invalid Input",
+    errorRequired: "This field is required",
+    errorCount: "Please enter at least 3 characters",
+    success: "Success"
+  },
+  classes:{
+    inputClass: "input--filled",
+    disabled: "input--disabled",
+  }
+  
+}
+
+createApp(dynamicMessageHelper , {inputFields}).mount('#myTestApp'); 
+
 
 createApp(dynamicInputComponent).mount('#myTestDynamicInputs');
