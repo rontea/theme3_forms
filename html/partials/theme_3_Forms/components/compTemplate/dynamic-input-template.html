@@ -2,8 +2,14 @@
 <template  id="dynamic-message-helper-template">
 
 <div class="demo-page input__counter" id="helper-message" ref="inputContainer">
-    <div class="input__filled--wrapper"> 
 
+    {{#if input-filled}}
+    <div class="input__filled--wrapper">
+    {{> dynamic-input-icons}}
+    {{else}}
+    <div>
+    {{/if}} 
+         
         {{> dynamic-input 
             input-type="text"
             id="inputId"
@@ -11,9 +17,12 @@
             placeholder="inputPlaceholder"
             ref="inputElement"
             class="input__style--filled input__style--filled--standard"
+            v-model="inputValue"
+            maxlength="10"
         }}
 
         {{> dynamic-input-label }}
+      
     </div>
 
     {{> dynamic-input-message }}

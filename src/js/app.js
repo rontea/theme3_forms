@@ -5,7 +5,6 @@ import { dynamicMessageHelper } from './components/dynamicMessageHelper.js';
 
 const { createApp } = Vue;
 
-
 // Define the ExampleComponent
 const ExampleComponent = {
   template: '<div><h2>{{ message }}</h2></div>',
@@ -22,7 +21,6 @@ createApp({
     ExampleComponent,
   },
 }).mount('#app');
-
 
 const data = createApp({
   delimiters: ['[[', ']]'],
@@ -47,18 +45,13 @@ document.querySelectorAll('.helper-message').forEach(element => {
   console.log('======');
 });
 
-
-
-
-
-
-
 /** Test Dynamic Inputs */
 
 const inputFields = {
   inputName: "Name",
   inputId: "inputName",
   inputPlaceholder: "Enter your Name",
+  inputValue: "test",
   labelTitle: "Name",
   required: true,
   disabled: false,
@@ -76,10 +69,8 @@ const inputFields = {
     inputClass: "input--filled",
     disabled: "input--disabled",
   }
-  
 }
 
 createApp(dynamicMessageHelper , {inputFields}).mount('#myTestApp'); 
-
 
 createApp(dynamicInputComponent).mount('#myTestDynamicInputs');

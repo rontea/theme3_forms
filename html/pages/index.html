@@ -1,26 +1,20 @@
 ---
 layout: default
 ---
-
+sample this is a page sample
 <ul>
   <li><a href="theme_3_forms/demo-text-input.html">  Text Input </a></li>
 </ul>
-
 
 <main id="app">
   <example-component></example-component>
 </main>
 
-
 <main id="sample">
-
   <p> [[ name ]] </p>
-
 </main>
 
-<div class=" container">
-
-
+<div class="container">
   <div class="input">
     {{> text-input
       id="text"
@@ -82,7 +76,6 @@ layout: default
         main-class="main-label"
         mark-class="sample1"
         label-class="labeltest label2"
-
       }}
 
       {{> checkbox-input 
@@ -90,7 +83,6 @@ layout: default
         id="subcribe" 
         name="test2" 
       }}
-        
     </div>
 
     <div class="flex flex--row mf__left--none">
@@ -108,8 +100,6 @@ layout: default
         value="car"
         label-title="I have a car with appearance"
       }}
-
-     
     </div>
 
     {{> checkbox-input
@@ -117,13 +107,15 @@ layout: default
       id="slider"
       value="setting"
     }}
-
   </div>
-  
 </div>
 
 <div class="container" id="myTestApp"> 
 </div>
 {{> dynamic-input-template
-    labelRequired=true
+    input-filled=true
+    input-filled-standard=true
+    icon-leading=true
 }}
+
+

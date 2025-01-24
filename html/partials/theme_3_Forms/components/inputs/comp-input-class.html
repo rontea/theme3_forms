@@ -4,7 +4,9 @@
         
         {{#if input-filled-outlined}} input__style--filled--outlined{{/if}}
         {{#if input-filled-standard}} input__style--filled--standard{{/if}}
-        {{#if input-filled-fill}} input__style--filled--fill {{#if icon-leading}}input__style--filled--pleft {{/if}}{{/if}}
+        {{#if input-filled-fill}} input__style--filled--fill 
+            {{#if icon-leading}}input__style--filled--pleft {{/if}}
+        {{/if}}
         {{#if icon-leading}} input__icon--pleft{{/if}}
         {{#if icon-trailing}} input__icon--pright{{/if}}
     {{else}}
@@ -15,6 +17,7 @@
         {{#if icon-leading}} input__style--pleft{{/if}}
         {{#if icon-trailing}} input__style--pright{{/if}}  
     {{/if}}
+    
     {{#if icon-side-leading}} icon__flex--leading{{/if}}
     {{#if disabled}} input--disabled{{/if}}
     {{#if input-class-add}} {{input-class-add}}{{/if}}

@@ -15,11 +15,15 @@
         :value="{{value}}"
     {{/if}}
 
+    {{#if v-model}}
+        v-model="{{v-model}}"
+    {{/if}}
+
     {{#if ref}}
     ref="{{ref}}"
     {{/if}}
     
-    {{> dynamic-input-class}}
+    class="{{> dynamic-input-class}}"
 
     {{#if style}}
         style="{{style}}"

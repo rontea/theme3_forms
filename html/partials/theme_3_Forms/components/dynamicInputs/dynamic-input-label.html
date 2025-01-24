@@ -1,8 +1,10 @@
-<label for="name" class="label__filled--style" ref="labelElement"> 
-    [[ labelTitle ]] 
-        
-        {{#if labelRequired}}
-        <span v-if="required" class="input--required" ref="requiredElement"> *</span>
-        {{/if}}
-  
-</label>
+{{#if input-filled}}
+    <label for="name" class="label__filled--style {{#if icon-leading}} input__icon--pleft{{/if}}" ref="labelElement"> 
+        [[ labelTitle ]] 
+            
+            {{#if labelRequired}}
+            <span v-if="required" class="input--required" ref="requiredElement"> *</span>
+            {{/if}}
+    
+    </label>
+{{/if}}
