@@ -1,9 +1,7 @@
 'use strict';
 
-
-
-
-const {ref , onMounted, nextTick, watch} = Vue;
+const {ref , onMounted, nextTick, watch ,computed} = Vue;
+import { MessageClass } from './classes/messageClass.js';
 
  export const dynamicMessageHelper = {
     delimiters: ['[[', ']]'],
@@ -17,11 +15,15 @@ const {ref , onMounted, nextTick, watch} = Vue;
     },
     setup(props) {
       
+      // Element
       const inputElement = ref(null);
+      const inputMessageElement = ref(null);
+      const currentCountElement = ref(null);
 
     
-
-      const message = ref(props.inputFields.message.default || 'Message not defined');
+      // input fields
+      const messages = ref(props.inputFields.messages);
+      let message = ref(props.inputFields.messages.default || 'Default message');
       const inputId = ref(props.inputFields.inputId || 'inputIdNotDefined');
       const inputName = ref(props.inputFields.inputName || 'inputNameNotDefined');
       // input value
@@ -32,26 +34,29 @@ const {ref , onMounted, nextTick, watch} = Vue;
       const required = ref(props.inputFields.required || false);
       const ariaInvalid = ref(props.inputFields.ariaInvalid || false);
       const autoComplete = ref(props.inputFields.autoComplete || 'off');
-      let currentCount = ref(props.inputFields.currentCount || 0);
-      let maxCount = ref(props.inputFields.maxCount ||  0);
+      const currentCount = ref(0);
+      const maxCount = ref(0);
+      const minlength = ref(props.inputFields.minlength || 0);
+      const maxlength = ref(props.inputFields.maxlength || 60);
+      // classes
+      const countWarningClass = ref(props.inputFields.classes.countWarning || 'input__counter--error');
       
-      //classess
+      
+      
 
       const disabledClass = ref(props.inputFields.classes.disabled || 'disabled');
       const inputClass = ref(props.inputFields.classes.inputClass || '');
 
       if(inputValue.value.length > 0){
         console.log('inputValue.value.length',inputValue.value.length);
-        currentCount = inputValue.value.length;
+        currentCount.value = inputValue.value.length;
       }
 
-    
-      
-      let count = 0;
       onMounted( async () => {
 
         await nextTick();
 
+        // Check Mounting Elements 
         if(!inputElement.value) {
           console.warn('inputElement ref not found. Skipping setup.');
         }else {
@@ -62,9 +67,17 @@ const {ref , onMounted, nextTick, watch} = Vue;
           }
 
           if(inputElement.value.getAttribute('minlength')){
-            currentCount.value = inputElement.value.getAttribute('minlength');
+            minlength.value = inputElement.value.getAttribute('minlength');
           }
 
+        }
+
+        if(!inputMessageElement.value) {
+          console.warn('inputMessageElement ref not found. Skipping setup.');
+        }
+
+        if(!currentCountElement.value) {
+          console.warn('currentCountElement ref not found. Skipping setup.');
         }
 
         if(inputClass.value !== '') {
@@ -81,31 +94,53 @@ const {ref , onMounted, nextTick, watch} = Vue;
           addClass(inputElement.value,disabledClass.value);
         }
 
-       
-  
-        
- 
-
-
       });
 
+      // watch for input value changes
       watch(inputValue, (newValue) => {
-        count = newValue.length;   
-        console.log(count);
+        currentCount.value = newValue.length; 
+
+        if( currentCount.value  >= maxCount.value){
+          console.log('check');
+          setErrorClass(inputMessageElement.value,countWarningClass.value);
+        }else{
+          removeClass(inputMessageElement.value,countWarningClass.value);
+        }
+
+        const messageDisplay = new MessageClass(messages.value,minlength.value
+          ,currentCount.value,maxCount.value,required.value).validateInputText();
+
+          message.value = messageDisplay.message;
+         
+          // Class CurrentCount
+          currentCountClass(messageDisplay.class);
+          
+        //console.log('currentCount',currentCount.value);
+        //console.log('maxCount',maxCount.value);
+        //console.log(countMaxClass.value);
+        
       });
    
+      const currentCountClass = (className) => {
+        console.log(className);
+          return className;
+      };
 
       const setErrorClass = (element,className) => {
         element.classList.add(className);
-      } 
+        console.log('element',element);
+        console.log('className',className);
+      };
 
       const addClass = (element,className) => {
         element.classList.add(className);
-      }
+      };
 
       const removeClass = (element,className) => {
         element.classList.remove(className);
-      }
+      };
+
+    
       
         return {
            message,
@@ -114,6 +149,7 @@ const {ref , onMounted, nextTick, watch} = Vue;
            inputValue,
            inputPlaceholder,
            inputElement,
+           inputMessageElement,
            labelTitle,
            required,
            disabled,
@@ -122,6 +158,7 @@ const {ref , onMounted, nextTick, watch} = Vue;
            inputClass,
            maxCount,
            currentCount,
+           currentCountClass,
            
           };
     },

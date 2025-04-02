@@ -51,15 +51,16 @@ const inputFields = {
   inputName: "Name",
   inputId: "inputName",
   inputPlaceholder: "Enter your Name",
-  inputValue: "test",
+  inputValue: "",
   labelTitle: "Name",
   required: true,
   disabled: false,
   autoComplete: 'off',
   ariaInvalid: false,
   checks: ["watchcounter","watchpattern"],
-  message: {
-    default: "Enter you Name",
+  messages: {
+    default: "Enter your Name",
+    warning: "Enter your Name",
     error: "Invalid Input",
     errorRequired: "This field is required",
     errorCount: "Please enter at least 3 characters",
@@ -68,6 +69,7 @@ const inputFields = {
   classes:{
     inputClass: "input--filled",
     disabled: "input--disabled",
+    countWarning: "input__counter--error",
   }
 }
 

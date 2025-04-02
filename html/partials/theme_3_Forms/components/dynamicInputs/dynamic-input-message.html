@@ -1,12 +1,12 @@
 <div class="span__group">
-        <span class="input--helper" id="name" message="Enter you Name">
+        <span class="input--helper" id="name" message="Enter you Name" ref="inputMessageElement">
          [[ message ]]
         </span>        
         <span
             class=" input--helper"
             id="name"> 
-            <span> [[currentCount]]</span>
+            <span class="normal-class" :class="currentCountClass"> [[currentCount]]</span>
             /
-            <span> [[ maxCount ]]</span>
+            <span  class="normal-class" :class="{ 'warning-class' : currentCount >= maxCount}"> [[ maxCount ]]</span>
         </span>
     </div>
